@@ -15,6 +15,7 @@ function import_raw_functions(functions, opts) {
 }
 
 function import_functions(formulajs, opts) {
+    console.log("import_functions");
     opts = opts || {};
     var prefix = opts.prefix || '';
     for (var key in formulajs) {
