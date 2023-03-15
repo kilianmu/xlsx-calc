@@ -49,18 +49,22 @@ function build_expression(formula) {
 }
 
 function exec_formula(formula) {
-    console.log("exec_formula - "+formula);
+    console.log(formula);
+    console.log(formula.wb);
+    console.log(formula.formula_ref);
+    console.log(formula.cell_name,);
+    console.log(formula.sheet);
+    console.log(formula.sheet_name);
+    console.log(formula.exec_formula);
     let root_exp = build_expression(formula);
     root_exp.update_cell_value();
 }
 
 exec_formula.set_fx = function set_fx(name, fn) {
-    console.log("set_fx - "+name);
     xlsx_Fx[name] = fn;
 };
 
 exec_formula.exec_fx = function exec_fx(name, args) {
-    console.log("exec_fx - "+name);
     return xlsx_Fx[name].apply(this, args);
 };
 
