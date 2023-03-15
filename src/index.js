@@ -10,7 +10,7 @@ var mymodule = function(workbook, options) {
     var formulas = find_all_cells_with_formulas(workbook, exec_formula);
     for (var i = formulas.length - 1; i >= 0; i--) {
       try {
-          console.log(formulas[i].name);
+         // console.log(formulas[i].name);
         exec_formula(formulas[i]);
       } catch (error) {
         if (!options || !options.continue_after_error) {

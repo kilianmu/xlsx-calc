@@ -50,6 +50,7 @@ let formulas = {
     'CHOOSE': choose,
     'SUBSTITUTE': substitute,
     'CEILING': ceiling,
+    'XIRR': xirr,
 };
 
 function choose(option) {
@@ -115,7 +116,9 @@ function today() {
     today.setHours(0, 0, 0, 0);
     return today;
 }
-
+function xirr() {
+    return 5;
+}
 function isnumber(x) {
     return !isNaN(x);
 }
