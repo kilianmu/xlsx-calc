@@ -14,8 +14,10 @@ class Calculator {
         this.formulas = find_all_cells_with_formulas(workbook, exec_formula);
         for (let i = this.formulas.length - 1; i >= 0; i--) {
             let exp = exec_formula.build_expression(this.formulas[i]);
+
             this.expressions.push(exp);
         }
+        console.log(this.expressions);
         this.calcNames();
     }
     
