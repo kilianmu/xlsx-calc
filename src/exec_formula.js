@@ -15,7 +15,7 @@ function import_raw_functions(functions, opts) {
 }
 
 function import_functions(formulajs, opts) {
-    console.log("import_functions - "+formulajs);
+
     opts = opts || {};
     var prefix = opts.prefix || '';
     for (var key in formulajs) {
@@ -49,6 +49,7 @@ function build_expression(formula) {
 }
 
 function exec_formula(formula) {
+    console.log("exec_formula - "+formula);
     let root_exp = build_expression(formula);
     root_exp.update_cell_value();
 }
