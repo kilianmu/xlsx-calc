@@ -55,10 +55,12 @@ function exec_formula(formula) {
 }
 
 exec_formula.set_fx = function set_fx(name, fn) {
+    console.log("set_fx - "+name);
     xlsx_Fx[name] = fn;
 };
 
 exec_formula.exec_fx = function exec_fx(name, args) {
+    console.log("exec_fx - "+name);
     return xlsx_Fx[name].apply(this, args);
 };
 
