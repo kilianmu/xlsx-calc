@@ -50,11 +50,11 @@ function build_expression(formula) {
 
 
 function exec_formula(formula) {
-    console.log(formula.xlsx_Fx);
+    /*console.log(formula.xlsx_Fx);
     console.log(formula.exec_formula);
     console.log(formula.cell);
     console.log(formula.formula_ref);
-    console.log(formula.wb);
+    console.log(formula.wb);*/
     let root_exp = build_expression(formula);
     root_exp.update_cell_value();
 }

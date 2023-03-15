@@ -117,7 +117,7 @@ function today() {
     return today;
 }
 function xirr() {
-    return 5;
+    return 4;
 }
 function isnumber(x) {
     return !isNaN(x);
