@@ -12,7 +12,9 @@
     "test-w": "mocha -w --check-leaks --sort",
     "build": "webpack --mode=production && sh deprecated-clones.sh"
   },
-  "dependencies": {},
+  "dependencies": {
+    "xlsx-calc": "^0.8.0"
+  },
   "devDependencies": {
     "@formulajs/formulajs": "^2.6.3",
     "mocha": "^8.3.0",

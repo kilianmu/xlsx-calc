@@ -49,13 +49,6 @@ function build_expression(formula) {
 }
 
 function exec_formula(formula) {
-    console.log(formula);
-    console.log(formula.wb);
-    console.log(formula.formula_ref);
-    console.log(formula.cell_name,);
-    console.log(formula.sheet);
-    console.log(formula.sheet_name);
-    console.log(formula.exec_formula);
     let root_exp = build_expression(formula);
     root_exp.update_cell_value();
 }

@@ -3833,6 +3833,11 @@
     "signal-exit" "^3.0.2"
     "typedarray-to-buffer" "^3.1.5"
 
+"xlsx-calc@^0.8.0":
+  "integrity" "sha512-8feHWAqLge5mI7m6yhmT3CEHE6viBJdzBSeOOVEqxz+tOh0ufCDps2iE9VQjJkie43DnzygtwHnp/UAJkA1nyg=="
+  "resolved" "https://registry.npmjs.org/xlsx-calc/-/xlsx-calc-0.8.0.tgz"
+  "version" "0.8.0"
+
 "xlsx@^0.17.0":
   "integrity" "sha512-lXNU0TuYsvElzvtI6O7WIVb9Zar1XYw7Xb3VAx2wn8N/n0whBYrCnHMxtFyIiUU1Wjf09WzmLALDfBO5PqTb1g=="
   "resolved" "https://registry.npmjs.org/xlsx/-/xlsx-0.17.5.tgz"
