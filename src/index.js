@@ -17,7 +17,7 @@ var mymodule = function(workbook, options) {
           throw error
         }
         if (options.log_error) {
-          console.log('error executing formula', 'sheet', formulas[i].sheet_name, 'cell', formulas[i].name, error)
+          console.log('error executing formula', 'sheet', formulas[i].sheet_name, 'cell', formulas[i].name, error.message)
         }
       }
     }
