@@ -8,6 +8,8 @@ const Calculator = require('./Calculator.js');
 
 var mymodule = function(workbook, options) {
     var formulas = find_all_cells_with_formulas(workbook, exec_formula);
+    const uniqueErrorMessages = new Set();
+
     for (var i = formulas.length - 1; i >= 0; i--) {
       try {
          // console.log(formulas[i].name);
@@ -17,9 +19,21 @@ var mymodule = function(workbook, options) {
           throw error
         }
         if (options.log_error) {
-          console.log('error executing formula', 'sheet', formulas[i].sheet_name, 'cell', formulas[i].name, error.message)
+            const errorMessage = `Sheet: ${formulas[i].sheet_name}, Error: ${error.message}`;
+
+            // If the error message is not in the uniqueErrorMessages Set, add it
+            if (!uniqueErrorMessages.has(errorMessage)) {
+                uniqueErrorMessages.add(errorMessage);
+            }
+           //console.log('error executing formula', 'sheet', formulas[i].sheet_name, 'cell', formulas[i].name, error.message)
         }
       }
+    }
+    if (uniqueErrorMessages.size > 0) {
+        console.log('Unique errors executing formulas:');
+        for (const errorMessage of uniqueErrorMessages) {
+            console.log(errorMessage);
+        }
     }
 };
 
