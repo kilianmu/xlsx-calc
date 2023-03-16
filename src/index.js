@@ -19,7 +19,9 @@ var mymodule = function(workbook, options) {
           throw error
         }
         if (options.log_error) {
-            const errorMessage = `Sheet: ${formulas[i].sheet_name}, Error: ${error.message}`;
+            const parts = error.message.split(':');
+            const functionError = parts[parts.length - 1].trim();
+            const errorMessage = `Sheet: ${formulas[i].sheet_name}, Error: ${functionError}`;
 
             // If the error message is not in the uniqueErrorMessages Set, add it
             if (!uniqueErrorMessages.has(errorMessage)) {
