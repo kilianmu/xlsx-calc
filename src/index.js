@@ -21,7 +21,12 @@ var mymodule = function(workbook, options) {
         if (options.log_error) {
             const parts = error.message.split(':');
             const functionError = parts[parts.length - 1].trim();
-            const errorMessage = `Error: ${functionError}`; //Sheet: ${formulas[i].sheet_name},
+            let errorMessage = "";
+            if (functionError.includes("Function")){
+                 errorMessage = `Error: ${functionError}`; //Sheet: ${formulas[i].sheet_name},
+            } else {
+                 errorMessage = `Error: ${functionError} - Sheet: ${formulas[i].sheet_name} - Cell ${formulas[i].name}`;
+            }
 
             // If the error message is not in the uniqueErrorMessages Set, add it
             if (!uniqueErrorMessages.has(errorMessage)) {
