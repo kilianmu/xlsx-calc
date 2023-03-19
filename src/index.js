@@ -26,6 +26,7 @@ var mymodule = function(workbook, options) {
                  errorMessage = `Error: ${functionError}`; //Sheet: ${formulas[i].sheet_name},
             } else {
                  errorMessage = `Error: ${functionError} - Sheet: ${formulas[i].sheet_name} - Cell ${formulas[i].name}`;
+                console.log(`Error: ${functionError} - Sheet: ${formulas[i].sheet_name} - Cell ${formulas[i].name}`);
                  console.log(error);
             }
 
