@@ -19,6 +19,7 @@ var mymodule = function(workbook, options) {
           throw error
         }
         if (options.log_error) {
+            console.log(error);
             const parts = error.message.split(':');
             const functionError = parts[parts.length - 1].trim();
             let errorMessage = "";
