@@ -26,8 +26,6 @@ var mymodule = function(workbook, options) {
                  errorMessage = `Error: ${functionError}`; //Sheet: ${formulas[i].sheet_name},
             } else {
                  errorMessage = `Error: ${functionError} - Sheet: ${formulas[i].sheet_name} - Cell ${formulas[i].name}`;
-                console.log(`Error: ${functionError} - Sheet: ${formulas[i].sheet_name} - Cell ${formulas[i].name}`);
-                 console.log(error);
             }
 
             // If the error message is not in the uniqueErrorMessages Set, add it
