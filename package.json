@@ -1,5 +1,5 @@
 {
-  "name": "xlsx-calc",
+  "name": "xlsx-calc-km",
   "version": "0.7.4",
   "description": "A simple xlsx formula calculator.",
   "main": "src/index.js",
@@ -24,5 +24,8 @@
   "tonicExampleFilename": "example_tonic.js",
   "pre-commit": [
     "build"
-  ]
+  ],
+  "dependencies": {
+    "xlsx-calc": "github:kilianmu/xlsx-calc-km"
+  }
 }
