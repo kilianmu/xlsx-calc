@@ -120,8 +120,9 @@ function today() {
 function xirr() {
     return 4;
 }
-function eomonth(start_date, months) {
-    console.log(start_date+"<>"+months);
+function eomonth() {
+    console.log(arguments);
+    //console.log(start_date+"<>"+months);
     return "15.07.1990";
     /*start_date = utils.parseDate(start_date)
 
