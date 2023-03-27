@@ -120,11 +120,65 @@ function today() {
 function xirr() {
     return 4;
 }
+function parseDate(date) {
+    if (!isNaN(date)) {
+        if (date instanceof Date) {
+            return new Date(date)
+        }
+
+        const d = parseFloat(date)
+
+        if (d < 0 || d >= 2958466) {
+            return new Error('#NUM!')
+        }
+
+        return serialNumberToDate(d)
+    }
+
+    if (typeof date === 'string') {
+        date = /(\d{4})-(\d\d?)-(\d\d?)$/.test(date) ? new Date(date + 'T00:00:00.000') : new Date(date)
+
+        if (!isNaN(date)) {
+            return date
+        }
+    }
+
+    return new Error('#VALUE!')
+}
+function serialNumberToDate(serial) {
+    if (serial < 60) {
+        serial += 1
+    }
+
+    const utc_days = Math.floor(serial - 25569)
+    const utc_value = utc_days * 86400
+    const date_info = new Date(utc_value * 1000)
+    const fractional_day = serial - Math.floor(serial) + 0.0000001
+
+    let total_seconds = Math.floor(86400 * fractional_day)
+
+    const seconds = total_seconds % 60
+
+    total_seconds -= seconds
+
+    const hours = Math.floor(total_seconds / (60 * 60))
+    const minutes = Math.floor(total_seconds / 60) % 60
+    let days = date_info.getUTCDate()
+    let month = date_info.getUTCMonth()
+
+    if (serial >= 60 && serial < 61) {
+        days = 29
+        month = 1
+    }
+
+    return new Date(date_info.getUTCFullYear(), month, days, hours, minutes, seconds)
+}
+
 function eomonth() {
     let start_date = arguments["0"];
     let months = arguments["1"];
     console.log(start_date+"<>"+months);
-    start_date = utils.parseDate(start_date);
+    start_date = parseDate(start_date);
 
     console.log("EOMONTH Calculation: "+start_date+" - "+months);
     console.log(new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0));
@@ -135,7 +189,7 @@ function eomonth() {
     }
 
     if (isNaN(months)) {
-        return error.value
+        return new Error('#VALUE!')
     }
 
     months = parseInt(months, 10)
