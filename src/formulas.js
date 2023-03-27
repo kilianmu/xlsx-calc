@@ -194,7 +194,7 @@ function eomonth() {
 
     months = parseInt(months, 10)
 
-
+//Hardcodiert: 12h wegen Zeitzone (Probleme außereuropäisch)
     return new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0, 12)
 }
 function isnumber(x) {
