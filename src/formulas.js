@@ -121,7 +121,9 @@ function xirr() {
     return 4;
 }
 function eomonth(start_date, months) {
-    start_date = utils.parseDate(start_date)
+    console.log(start_date+"<>"+months);
+    return "15.07.1990";
+    /*start_date = utils.parseDate(start_date)
 
     console.log("EOMONTH Calculation: "+start_date+" - "+months);
     console.log(new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0));
@@ -138,7 +140,7 @@ function eomonth(start_date, months) {
     months = parseInt(months, 10)
 
 
-    return new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0)
+    return new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0)*/
 }
 function isnumber(x) {
     return !isNaN(x);
