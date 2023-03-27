@@ -120,8 +120,20 @@ function today() {
 function xirr() {
     return 4;
 }
-function eomonth() {
-    return "15.07.1990";
+function eomonth(start_date, months) {
+    start_date = utils.parseDate(start_date)
+
+    if (start_date instanceof Error) {
+        return start_date
+    }
+
+    if (isNaN(months)) {
+        return error.value
+    }
+
+    months = parseInt(months, 10)
+
+    return new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0)
 }
 function isnumber(x) {
     return !isNaN(x);
