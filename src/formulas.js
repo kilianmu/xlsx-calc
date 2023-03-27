@@ -123,7 +123,11 @@ function xirr() {
 function eomonth(start_date, months) {
     start_date = utils.parseDate(start_date)
 
+    console.log("EOMONTH Calculation: "+start_date+" - "+months);
+    console.log(new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0));
+
     if (start_date instanceof Error) {
+        console.log(Error);
         return start_date
     }
 
@@ -132,8 +136,7 @@ function eomonth(start_date, months) {
     }
 
     months = parseInt(months, 10)
-    console.log("EOMONTH Calculation: "+start_date+" - "+months);
-    console.log(new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0));
+
 
     return new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0)
 }
