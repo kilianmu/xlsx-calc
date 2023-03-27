@@ -122,7 +122,9 @@ function xirr() {
 }
 function eomonth() {
     console.log(arguments);
-    //console.log(start_date+"<>"+months);
+    let start_date = arguments["0"];
+    let months = arguments["1"];
+    console.log(start_date+"<>"+months);
     return "15.07.1990";
     /*start_date = utils.parseDate(start_date)
 
