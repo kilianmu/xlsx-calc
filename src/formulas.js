@@ -132,6 +132,8 @@ function eomonth(start_date, months) {
     }
 
     months = parseInt(months, 10)
+    console.log("EOMONTH Calculation: "+start_date+" - "+months);
+    console.log(new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0));
 
     return new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0)
 }
