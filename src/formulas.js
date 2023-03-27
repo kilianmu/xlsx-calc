@@ -51,6 +51,7 @@ let formulas = {
     'SUBSTITUTE': substitute,
     'CEILING': ceiling,
     'XIRR': xirr,
+    'EOMONTH': eomonth,
 };
 
 function choose(option) {
@@ -118,6 +119,9 @@ function today() {
 }
 function xirr() {
     return 4;
+}
+function eomonth() {
+    return "15.07.1990";
 }
 function isnumber(x) {
     return !isNaN(x);
