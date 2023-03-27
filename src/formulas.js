@@ -195,7 +195,7 @@ function eomonth() {
     months = parseInt(months, 10)
 
 
-    return new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0)
+    return new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0, 12)
 }
 function isnumber(x) {
     return !isNaN(x);
