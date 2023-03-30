@@ -191,3 +191,9 @@ function parse(expression) {
 }
 
 const compute = computeExpression
+
+module.exports = {
+  createToken: createToken,
+  parse: parse,
+  compute: compute
+}

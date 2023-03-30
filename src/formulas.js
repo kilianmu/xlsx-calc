@@ -103,6 +103,9 @@ function sumifs() {
     for (let i = 0; i < criteriaLength; i++) {
         criterias[i * 2] = utils.flatten(criterias[i * 2])
     }
+    console.log(criterias);
+    //console.log(range);
+
 
     let result = 0
 
