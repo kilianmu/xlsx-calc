@@ -3,6 +3,11 @@
 // +---------------------+
 // | FORMULAS REGISTERED |
 // +---------------------+
+import * as utils from './utils/common.js'
+import * as error from './utils/error.js'
+import * as evalExpression from './utils/criteria-eval.js'
+
+
 let formulas = {
     'FLOOR': Math.floor,
     '_xlfn.FLOOR.MATH': Math.floor,
@@ -47,12 +52,15 @@ let formulas = {
     'ROUND': round,
     'CORREL': correl, // missing test
     'SUMIF': sumif, // missing test,
+    'SUMIFS': sumifs, // missing test,
     'CHOOSE': choose,
     'SUBSTITUTE': substitute,
     'CEILING': ceiling,
     'XIRR': xirr,
     'EOMONTH': eomonth,
 };
+
+/* formulas */
 
 function choose(option) {
     return arguments[option];
@@ -76,6 +84,60 @@ function sumif(){
         }
     });
     return sumResult
+}
+
+function sumifs() {
+    const args = utils.argsToArray(arguments)
+    const range = utils.parseNumberArray(utils.flatten(args.shift()))
+
+    if (range instanceof Error) {
+        return range
+    }
+
+    const criterias = args
+    const criteriaLength = criterias.length / 2
+
+    for (let i = 0; i < criteriaLength; i++) {
+        criterias[i * 2] = utils.flatten(criterias[i * 2])
+    }
+
+    let result = 0
+
+    for (let i = 0; i < range.length; i++) {
+        let isMeetCondition = false
+
+        for (let j = 0; j < criteriaLength; j++) {
+            const valueToTest = criterias[j * 2][i]
+            const criteria = criterias[j * 2 + 1]
+            const isWildcard = criteria === void 0 || criteria === '*'
+            let computedResult = false
+
+            if (isWildcard) {
+                computedResult = true
+            } else {
+                const tokenizedCriteria = evalExpression.parse(criteria + '')
+                const tokens = [evalExpression.createToken(valueToTest, evalExpression.TOKEN_TYPE_LITERAL)].concat(
+                    tokenizedCriteria
+                )
+
+                computedResult = evalExpression.compute(tokens)
+            }
+
+            // Criterias are calculated as AND so any `false` breakes the loop as unmeet condition
+            if (!computedResult) {
+                isMeetCondition = false
+                break
+            }
+
+            isMeetCondition = true
+        }
+
+        if (isMeetCondition) {
+            result += range[i]
+        }
+    }
+
+    return result
 }
 
 function correl(a,b){
@@ -120,79 +182,23 @@ function today() {
 function xirr() {
     return 4;
 }
-function parseDate(date) {
-    if (!isNaN(date)) {
-        if (date instanceof Date) {
-            return new Date(date)
-        }
 
-        const d = parseFloat(date)
-
-        if (d < 0 || d >= 2958466) {
-            return new Error('#NUM!')
-        }
-
-        return serialNumberToDate(d)
-    }
-
-    if (typeof date === 'string') {
-        date = /(\d{4})-(\d\d?)-(\d\d?)$/.test(date) ? new Date(date + 'T00:00:00.000') : new Date(date)
-
-        if (!isNaN(date)) {
-            return date
-        }
-    }
-
-    return new Error('#VALUE!')
-}
-function serialNumberToDate(serial) {
-    if (serial < 60) {
-        serial += 1
-    }
-
-    const utc_days = Math.floor(serial - 25569)
-    const utc_value = utc_days * 86400
-    const date_info = new Date(utc_value * 1000)
-    const fractional_day = serial - Math.floor(serial) + 0.0000001
-
-    let total_seconds = Math.floor(86400 * fractional_day)
-
-    const seconds = total_seconds % 60
-
-    total_seconds -= seconds
-
-    const hours = Math.floor(total_seconds / (60 * 60))
-    const minutes = Math.floor(total_seconds / 60) % 60
-    let days = date_info.getUTCDate()
-    let month = date_info.getUTCMonth()
-
-    if (serial >= 60 && serial < 61) {
-        days = 29
-        month = 1
-    }
-
-    return new Date(date_info.getUTCFullYear(), month, days, hours, minutes, seconds)
-}
 
 function eomonth() {
     let start_date = arguments["0"];
     let months = arguments["1"];
-    console.log(start_date+"<>"+months);
-    start_date = parseDate(start_date);
-
-    console.log("EOMONTH Calculation: "+start_date+" - "+months);
-    console.log(new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0));
+    start_date = utils.parseDate(start_date)
 
     if (start_date instanceof Error) {
-        console.log(Error);
         return start_date
     }
 
     if (isNaN(months)) {
-        return new Error('#VALUE!')
+        return error.value
     }
 
     months = parseInt(months, 10)
+
 
 //Hardcodiert: 12h wegen Zeitzone (Probleme außereuropäisch)
     return new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0, 12)
