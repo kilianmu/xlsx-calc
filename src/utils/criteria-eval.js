@@ -14,7 +14,7 @@ export const TOKEN_TYPE_LITERAL = _TOKEN_TYPE_LITERAL
  * @param {String} type Type of the token 'operator' or 'literal'.
  * @return {Object}
  */
-export function createToken(value, type) {
+function createToken(value, type) {
   if (SUPPORTED_TOKENS.indexOf(type) === -1) {
     throw new Error('Unsupported token type: ' + type)
   }
@@ -186,8 +186,8 @@ function evaluate(values, operator) {
   return result
 }
 
-export function parse(expression) {
+function parse(expression) {
   return analyzeTokens(tokenizeExpression(expression))
 }
 
-export const compute = computeExpression
+const compute = computeExpression

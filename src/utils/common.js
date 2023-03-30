@@ -1,7 +1,7 @@
 const error = require('./error.js');
 
 // Arrays
-export function argsToArray(args) {
+function argsToArray(args) {
   const result = []
 
   arrayEach(args, (value) => {
@@ -11,7 +11,7 @@ export function argsToArray(args) {
   return result
 }
 
-export function arrayEach(array, iteratee) {
+function arrayEach(array, iteratee) {
   let index = -1
   const length = array.length
 
@@ -24,7 +24,7 @@ export function arrayEach(array, iteratee) {
   return array
 }
 
-export function arrayValuesToNumbers(arr) {
+function arrayValuesToNumbers(arr) {
   let n = arr.length
   let el
 
@@ -55,7 +55,7 @@ export function arrayValuesToNumbers(arr) {
   return arr
 }
 
-export function fillMatrix(matrix, fill_value) {
+function fillMatrix(matrix, fill_value) {
   if (!matrix) {
     return error.value
   }
@@ -78,7 +78,7 @@ export function fillMatrix(matrix, fill_value) {
   return matrix.map((el) => [...el, ...Array(longestArrayLength - el.length).fill(fill_value ? fill_value : 0)])
 }
 
-export function flatten() {
+function flatten() {
   let result
 
   if (arguments.length === 1) {
@@ -95,7 +95,7 @@ export function flatten() {
   return result
 }
 
-export function flattenShallow(array) {
+function flattenShallow(array) {
   if (!array || !array.reduce) {
     return [array]
   }
@@ -122,7 +122,7 @@ export function flattenShallow(array) {
   })
 }
 
-export function initial(array, idx) {
+function initial(array, idx) {
   idx = idx || 1
 
   if (!array || typeof array.slice !== 'function') {
@@ -132,11 +132,11 @@ export function initial(array, idx) {
   return array.slice(0, array.length - idx)
 }
 
-export function isArrayLike(a) {
+function isArrayLike(a) {
   return a != null && typeof a.length === 'number' && typeof a !== 'string'
 }
 
-export function isFlat(array) {
+function isFlat(array) {
   if (!array) {
     return false
   }
@@ -150,7 +150,7 @@ export function isFlat(array) {
   return true
 }
 
-export function rest(array, idx) {
+function rest(array, idx) {
   idx = idx || 1
 
   if (!array || typeof array.slice !== 'function') {
@@ -160,7 +160,7 @@ export function rest(array, idx) {
   return array.slice(idx)
 }
 
-export function transpose(matrix) {
+function transpose(matrix) {
   if (!matrix) {
     return error.value
   }
@@ -169,7 +169,7 @@ export function transpose(matrix) {
 }
 
 // Databases
-export function findField(database, title) {
+function findField(database, title) {
   let index = null
 
   arrayEach(database, (value, i) => {
@@ -189,7 +189,7 @@ export function findField(database, title) {
 }
 
 // Errors
-export function anyError() {
+function anyError() {
   for (let n = 0; n < arguments.length; n++) {
     if (arguments[n] instanceof Error) {
       return arguments[n]
@@ -199,7 +199,7 @@ export function anyError() {
   return undefined
 }
 
-export function anyIsError() {
+function anyIsError() {
   let n = arguments.length
 
   while (n--) {
@@ -212,19 +212,19 @@ export function anyIsError() {
 }
 
 // Numbers
-export function cleanFloat(number) {
+function cleanFloat(number) {
   const power = 1e14
 
   return Math.round(number * power) / power
 }
 
-export function numbers() {
+function numbers() {
   const possibleNumbers = flatten.apply(null, arguments)
 
   return possibleNumbers.filter((el) => typeof el === 'number')
 }
 
-export function serialNumberToDate(serial) {
+function serialNumberToDate(serial) {
   if (serial < 60) {
     serial += 1
   }
@@ -254,7 +254,7 @@ export function serialNumberToDate(serial) {
 }
 
 // Parsers
-export function parseBool(bool) {
+function parseBool(bool) {
   if (typeof bool === 'boolean') {
     return bool
   }
@@ -286,7 +286,7 @@ export function parseBool(bool) {
   return error.value
 }
 
-export function parseDate(date) {
+function parseDate(date) {
   if (!isNaN(date)) {
     if (date instanceof Date) {
       return new Date(date)
@@ -312,7 +312,7 @@ export function parseDate(date) {
   return error.value
 }
 
-export function parseDateArray(arr) {
+function parseDateArray(arr) {
   let len = arr.length
   let parsed
 
@@ -329,7 +329,7 @@ export function parseDateArray(arr) {
   return arr
 }
 
-export function parseMatrix(matrix) {
+function parseMatrix(matrix) {
   if (!matrix || (matrix.length && matrix.length === 0)) {
     return error.value
   }
@@ -348,7 +348,7 @@ export function parseMatrix(matrix) {
   return matrix
 }
 
-export function parseNumber(string) {
+function parseNumber(string) {
   if (string instanceof Error) {
     return string
   }
@@ -368,7 +368,7 @@ export function parseNumber(string) {
   return error.value
 }
 
-export function parseNumberArray(arr) {
+function parseNumberArray(arr) {
   let len
 
   if (!arr || (len = arr.length) === 0) {
@@ -394,7 +394,7 @@ export function parseNumberArray(arr) {
   return arr
 }
 
-export function parseString(string) {
+function parseString(string) {
   if (string instanceof Error) {
     return string
   }
@@ -407,7 +407,7 @@ export function parseString(string) {
 }
 
 // Strings
-export function anyIsString() {
+function anyIsString() {
   let n = arguments.length
 
   while (n--) {
@@ -420,6 +420,6 @@ export function anyIsString() {
 }
 
 // Misc
-export function isDefined(arg) {
+function isDefined(arg) {
   return arg !== undefined && arg !== null
 }
