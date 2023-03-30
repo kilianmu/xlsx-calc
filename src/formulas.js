@@ -132,6 +132,7 @@ function sumifs() {
 
                 computedResult = evalExpression.compute(tokens)
             }
+            console.log(computedResult);
 
             // Criterias are calculated as AND so any `false` breakes the loop as unmeet condition
             if (!computedResult) {
@@ -141,7 +142,7 @@ function sumifs() {
 
             isMeetCondition = true
         }
-
+        console.log(isMeetCondition);
         if (isMeetCondition) {
             result += range[i]
         }
