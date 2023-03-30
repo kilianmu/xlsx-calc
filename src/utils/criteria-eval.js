@@ -4,8 +4,8 @@ const _TOKEN_TYPE_OPERATOR = 'operator'
 const _TOKEN_TYPE_LITERAL = 'literal'
 const SUPPORTED_TOKENS = [_TOKEN_TYPE_OPERATOR, _TOKEN_TYPE_LITERAL]
 
-export const TOKEN_TYPE_OPERATOR = _TOKEN_TYPE_OPERATOR
-export const TOKEN_TYPE_LITERAL = _TOKEN_TYPE_LITERAL
+const TOKEN_TYPE_OPERATOR = _TOKEN_TYPE_OPERATOR
+const TOKEN_TYPE_LITERAL = _TOKEN_TYPE_LITERAL
 
 /**
  * Create token which describe passed symbol/value.
