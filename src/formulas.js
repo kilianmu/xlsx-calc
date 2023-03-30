@@ -104,7 +104,7 @@ function sumifs() {
         criterias[i * 2] = utils.flatten(criterias[i * 2])
     }
     console.log(criterias);
-    //console.log(range);
+    console.log(criteriaLength);
 
 
     let result = 0
@@ -116,6 +116,10 @@ function sumifs() {
             const valueToTest = criterias[j * 2][i]
             const criteria = criterias[j * 2 + 1]
             const isWildcard = criteria === void 0 || criteria === '*'
+
+            console.log(valueToTest);
+            console.log(criteria);
+
             let computedResult = false
 
             if (isWildcard) {
