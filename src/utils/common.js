@@ -425,6 +425,30 @@ function isDefined(arg) {
 }
 
 module.exports = {
+  argsToArray: argsToArray,
+  arrayEach: arrayEach,
+  arrayValuesToNumbers: arrayValuesToNumbers,
+  fillMatrix: fillMatrix,
+  flatten: flatten,
+  flattenShallow: flattenShallow,
+  initial: initial,
+  isArrayLike: isArrayLike,
+  isFlat: isFlat,
+  rest: rest,
+  transpose: transpose,
+  findField: findField,
+  anyError: anyError,
+  anyIsError: anyIsError,
+  cleanFloat: cleanFloat,
+  numbers: numbers,
+  serialNumberToDate: serialNumberToDate,
+  parseBool: parseBool,
   parseDate: parseDate,
-  argsToArray: argsToArray
+  parseDateArray: parseDateArray,
+  parseMatrix: parseMatrix,
+  parseNumber: parseNumber,
+  parseNumberArray: parseNumberArray,
+  parseString: parseString,
+  anyIsString: anyIsString,
+  isDefined: isDefined
 };
