@@ -89,6 +89,9 @@ function sumif(){
 function sumifs() {
     const args = utils.argsToArray(arguments)
     const range = utils.parseNumberArray(utils.flatten(args.shift()))
+    console.log("sumifs");
+    console.log(args);
+    console.log(range);
 
     if (range instanceof Error) {
         return range
