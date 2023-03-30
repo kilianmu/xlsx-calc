@@ -3,9 +3,9 @@
 // +---------------------+
 // | FORMULAS REGISTERED |
 // +---------------------+
-import * as utils from './utils/common.js'
-import * as error from './utils/error.js'
-import * as evalExpression from './utils/criteria-eval.js'
+const utils = require('./utils/common.js');
+const error = require('./utils/error.js');
+const evalExpression = require('./utils/criteria-eval.js');
 
 
 let formulas = {

@@ -1,4 +1,4 @@
-import * as error from './error.js'
+const error = require('./error.js');
 
 // Arrays
 export function argsToArray(args) {
