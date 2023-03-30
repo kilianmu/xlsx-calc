@@ -423,3 +423,8 @@ function anyIsString() {
 function isDefined(arg) {
   return arg !== undefined && arg !== null
 }
+
+module.exports = {
+  parseDate: parseDate,
+  argsToArray: argsToArray
+};
