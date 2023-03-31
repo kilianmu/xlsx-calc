@@ -24,8 +24,5 @@
   "tonicExampleFilename": "example_tonic.js",
   "pre-commit": [
     "build"
-  ],
-  "dependencies": {
-    "xlsx-calc": "github:kilianmu/xlsx-calc-km"
-  }
+  ]
 }
