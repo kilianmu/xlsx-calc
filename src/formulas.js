@@ -91,7 +91,7 @@ function sumifs() {
     const range = utils.parseNumberArray(utils.flatten(args.shift()))
     console.log("sumifs");
     console.log(args);
-    console.log(range);
+    //console.log(range);
 
     if (range instanceof Error) {
         return range
@@ -103,8 +103,8 @@ function sumifs() {
     for (let i = 0; i < criteriaLength; i++) {
         criterias[i * 2] = utils.flatten(criterias[i * 2])
     }
-    console.log(criterias);
-    console.log(criteriaLength);
+    //console.log(criterias);
+    //console.log(criteriaLength);
 
 
     let result = 0
