@@ -136,9 +136,9 @@ function sumifs() {
                     )
                     computedResult = evalExpression.compute(tokens)
                     if(range.length == rangeLength && i == 31) {
-                        console.log(new Date(valueToTest));
+                        console.log(formatter.format(new Date(valueToTest)));
                         console.log(new Date(criteria));
-                        console.log(new Date((criteria - 1) * 86400000 + Date.UTC(1900, 0, 1)))
+                        console.log(new Date((serialNumber - 25569) * 86400 * 1000))
                         console.log("checking");
                         console.log(tokens);
                         console.log(computedResult);
