@@ -153,18 +153,13 @@ function sumifs() {
         if(range.length == rangeLength && i == 31 && isMeetCondition == true) {
             console.log("result: "+result);
             console.log("range[i]: "+range[i]);
-            console.log("i: "+i+" | j: "+j+" | isWildcard: "+isWildcard);
-            console.log("valueToTest: "+valueToTest);
-            console.log(utils.parseDate(valueToTest));
-            console.log("criteria: "+criteria);
-            console.log(utils.parseDate(criteria));
         }
 
         if (isMeetCondition) {
             result += range[i]
         }
     }
-
+    console.log(result);
     return result
 }
 
