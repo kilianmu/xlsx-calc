@@ -133,12 +133,11 @@ function sumifs() {
             if (isWildcard) {
                 computedResult = true
             } else {
-                if(range.length == 5) {
-                    console.log("computedResult start");
-                }
                 const tokenizedCriteria = evalExpression.parse(criteria + '')
                 if(range.length == 5) {
                     console.log("computedResult 2");
+                    console.log("tokenizedCriteria: "+tokenizedCriteria);
+                    console.log("TOKEN_TYPE_LITERAL: "+evalExpression.TOKEN_TYPE_LITERAL);
                 }
                 const tokens = [evalExpression.createToken(valueToTest, evalExpression.TOKEN_TYPE_LITERAL)].concat(
                     tokenizedCriteria
