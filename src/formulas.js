@@ -90,7 +90,9 @@ function sumifs() {
     const args = utils.argsToArray(arguments)
     const range = utils.parseNumberArray(utils.flatten(args.shift()))
 
-    if(range.length == 5){
+    let rangeLength = 241;
+
+    if(range.length == rangeLength){
         console.log("sumifs");
         console.log(range)
     }
@@ -106,7 +108,7 @@ function sumifs() {
         criterias[i * 2] = utils.flatten(criterias[i * 2])
     }
 
-    if(range.length == 5) {
+    if(range.length == rangeLength) {
         console.log(criterias);
         console.log("criteriaLength: "+criteriaLength);
     }
@@ -122,7 +124,7 @@ function sumifs() {
             const criteria = criterias[j * 2 + 1]
             const isWildcard = criteria === void 0 || criteria === '*'
 
-            if(range.length == 5) {
+            if(range.length == rangeLength) {
                 console.log("i: "+i+" | j: "+j+" | isWildcard: "+isWildcard);
                 console.log("valueToTest: "+valueToTest);
                 console.log("criteria: "+criteria);
@@ -134,7 +136,7 @@ function sumifs() {
                 computedResult = true
             } else {
                 const tokenizedCriteria = evalExpression.parse(criteria + '')
-                if(range.length == 5) {
+                if(range.length == rangeLength) {
                     console.log("computedResult 2");
                     console.log("tokenizedCriteria: "+tokenizedCriteria);
                     console.log("TOKEN_TYPE_LITERAL: "+evalExpression.TOKEN_TYPE_LITERAL);
@@ -142,17 +144,17 @@ function sumifs() {
                 const tokens = [evalExpression.createToken(valueToTest, evalExpression.TOKEN_TYPE_LITERAL)].concat(
                     tokenizedCriteria
                 )
-                if(range.length == 5) {
+                if(range.length == rangeLength) {
                     console.log("computedResult 3");
                 }
 
                 computedResult = evalExpression.compute(tokens)
-                if(range.length == 5) {
+                if(range.length == rangeLength) {
                     console.log("computedResult 4");
                 }
             }
 
-            if(range.length == 5) {
+            if(range.length == rangeLength) {
                 console.log("computedResult: "+computedResult);
             }
 
@@ -165,7 +167,7 @@ function sumifs() {
             isMeetCondition = true
         }
 
-        if(range.length == 5) {
+        if(range.length == rangeLength) {
             console.log("isMeetCondition: "+isMeetCondition);
         }
 
