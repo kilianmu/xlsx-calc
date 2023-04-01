@@ -123,7 +123,7 @@ function sumifs() {
             const criteria = criterias[j * 2 + 1]
             const isWildcard = criteria === void 0 || criteria === '*'
 
-            if(range.length == rangeLength) {
+            if(range.length == rangeLength && i == 31) {
 
                 console.log("i: "+i+" | j: "+j+" | isWildcard: "+isWildcard);
                 console.log("valueToTest: "+valueToTest);
@@ -141,10 +141,12 @@ function sumifs() {
                 const tokens = [evalExpression.createToken(valueToTest, evalExpression.TOKEN_TYPE_LITERAL)].concat(
                     tokenizedCriteria
                 )
-                console.log("checking");
-                console.log(valueToTest);
-                console.log(tokenizedCriteria);
-                console.log(tokens);
+                if(range.length == rangeLength && i == 31) {
+                    console.log("checking");
+                    console.log(valueToTest);
+                    console.log(tokenizedCriteria);
+                    console.log(tokens);
+                }
                 computedResult = evalExpression.compute(tokens)
             }
 
