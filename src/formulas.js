@@ -133,13 +133,12 @@ function sumifs() {
                     const tokens = [evalExpression.createToken(valueToTest, evalExpression.TOKEN_TYPE_LITERAL)].concat(
                         tokenizedCriteria
                     )
+                    computedResult = evalExpression.compute(tokens)
                     if(range.length == rangeLength && i == 31) {
                         console.log("checking");
-                        console.log(valueToTest);
-                        console.log(tokenizedCriteria);
                         console.log(tokens);
+                        console.log(computedResult);
                     }
-                    computedResult = evalExpression.compute(tokens)
                 }
 
                 // Criterias are calculated as AND so any `false` breakes the loop as unmeet condition
