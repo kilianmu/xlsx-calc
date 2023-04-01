@@ -302,7 +302,7 @@ function parseDate(date) {
   }
 
   if (typeof date === 'string') {
-    date = /(\d{4})-(\d\d?)-(\d\d?)$/.test(date) ? new Date(date + 'T00:00:00.000') : new Date(date)
+    date = /(\d{4})-(\d\d?)-(\d\d?)$/.test(date) ? new Date(date + ' T00:00:00.000') : new Date(date)
 
     if (!isNaN(date)) {
       return date

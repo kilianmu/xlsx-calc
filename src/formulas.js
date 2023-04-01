@@ -125,6 +125,17 @@ function sumifs() {
             const isWildcard = criteria === void 0 || criteria === '*'
 
             if(range.length == rangeLength) {
+                // Get current timezone offset in minutes
+                const offsetMinutes = new Date().getTimezoneOffset()
+
+// Convert to hours and minutes
+                const offsetHours = Math.floor(Math.abs(offsetMinutes) / 60)
+                const offsetMinutesRemainder = Math.abs(offsetMinutes) % 60
+                const offsetSign = offsetMinutes > 0 ? '-' : '+'
+                const offsetString = `${offsetSign}${padNumber(offsetHours)}:${padNumber(offsetMinutesRemainder)}`
+
+                console.log(`Current timezone: UTC${offsetString}`);
+
                 console.log("i: "+i+" | j: "+j+" | isWildcard: "+isWildcard);
                 console.log("valueToTest: "+valueToTest);
                 console.log(utils.parseDate(valueToTest));
@@ -240,9 +251,11 @@ function eomonth() {
 
     months = parseInt(months, 10)
 
+    const formatter = new Intl.DateTimeFormat('en-US', { timeZone: 'Europe/Berlin' })
 
-//Hardcodiert: 12h wegen Zeitzone (Probleme außereuropäisch)
-    return new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0, 12)
+    // Hardcodiert: 12h wegen Zeitzone (Probleme außereuropäisch)
+    let return_date = new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0);
+    return formatter.format(return_date);
 }
 function isnumber(x) {
     return !isNaN(x);
