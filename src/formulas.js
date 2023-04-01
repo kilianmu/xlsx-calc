@@ -110,7 +110,7 @@ function sumifs() {
 
     if(range.length == rangeLength) {
         console.log(criterias);
-        console.log("criteriaLength: "+criteriaLength);
+        console.log("criteriaLength-2: "+criteriaLength);
     }
 
 
