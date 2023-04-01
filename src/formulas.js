@@ -133,12 +133,12 @@ function sumifs() {
                     const tokens = [evalExpression.createToken(valueToTest, evalExpression.TOKEN_TYPE_LITERAL)].concat(
                         tokenizedCriteria
                     )
-                    /*if(range.length == rangeLength && i == 31) {
+                    if(range.length == rangeLength && i == 31) {
                         console.log("checking");
                         console.log(valueToTest);
                         console.log(tokenizedCriteria);
                         console.log(tokens);
-                    }*/
+                    }
                     computedResult = evalExpression.compute(tokens)
                 }
 
