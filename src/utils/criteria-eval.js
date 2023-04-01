@@ -193,6 +193,7 @@ function parse(expression) {
 const compute = computeExpression
 
 module.exports = {
+  TOKEN_TYPE_LITERAL: _TOKEN_TYPE_LITERAL,
   createToken: createToken,
   parse: parse,
   compute: compute
