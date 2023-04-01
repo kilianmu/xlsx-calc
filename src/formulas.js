@@ -125,6 +125,7 @@ function sumifs() {
             const isWildcard = criteria === void 0 || criteria === '*'
 
             if(range.length == rangeLength) {
+                console.log("offesttimes");
                 // Get current timezone offset in minutes
                 const offsetMinutes = new Date().getTimezoneOffset()
 
