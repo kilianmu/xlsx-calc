@@ -127,7 +127,9 @@ function sumifs() {
             if(range.length == rangeLength) {
                 console.log("i: "+i+" | j: "+j+" | isWildcard: "+isWildcard);
                 console.log("valueToTest: "+valueToTest);
+                console.log(utils.parseDate(valueToTest));
                 console.log("criteria: "+criteria);
+                console.log(utils.parseDate(criteria));
             }
 
             let computedResult = false
