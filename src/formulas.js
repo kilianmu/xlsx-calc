@@ -139,13 +139,11 @@ function sumifs() {
                     computedResult = evalExpression.compute(tokens)
                     if(range.length == rangeLength && i == 31) {
 
-                        console.log(Date.parse(valueToTest));
+                        console.log(isNaN(Date.parse(valueToTest)));
                         console.log(formatter.format(new Date(valueToTest)));
-                        console.log(new Date(criteria));
 
-                        console.log(Date.parse(criteria));
+                        console.log(isNaN(Date.parse(criteria)));
                         console.log(formatter.format(new Date((criteria - 25569) * 86400 * 1000)))
-                        console.log(new Date((criteria - 25569) * 86400 * 1000))
 
                         console.log("checking");
                         console.log(tokens);
