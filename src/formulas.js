@@ -92,10 +92,8 @@ function sumifs() {
 
     if(range.length == 5){
         console.log("sumifs");
-        console.log(args);
+        console.log(range)
     }
-
-    //console.log(range);
 
     if (range instanceof Error) {
         return range
@@ -110,7 +108,7 @@ function sumifs() {
 
     if(range.length == 5) {
         console.log(criterias);
-        console.log(criteriaLength);
+        console.log("criteriaLength: "+criteriaLength);
     }
 
 
@@ -125,8 +123,8 @@ function sumifs() {
             const isWildcard = criteria === void 0 || criteria === '*'
 
             if(range.length == 5) {
-                console.log(valueToTest);
-                console.log(criteria);
+                console.log("valueToTest: "+valueToTest);
+                console.log("criteria: "+criteria);
             }
 
             let computedResult = false
@@ -143,7 +141,7 @@ function sumifs() {
             }
 
             if(range.length == 5) {
-                console.log(computedResult);
+                console.log("computedResult: "+computedResult);
             }
 
             // Criterias are calculated as AND so any `false` breakes the loop as unmeet condition
@@ -156,7 +154,7 @@ function sumifs() {
         }
 
         if(range.length == 5) {
-            console.log(isMeetCondition);
+            console.log("isMeetCondition: "+isMeetCondition);
         }
 
         if (isMeetCondition) {
