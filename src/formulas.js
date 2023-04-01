@@ -137,11 +137,20 @@ function sumifs() {
                     console.log("computedResult start");
                 }
                 const tokenizedCriteria = evalExpression.parse(criteria + '')
+                if(range.length == 5) {
+                    console.log("computedResult 2");
+                }
                 const tokens = [evalExpression.createToken(valueToTest, evalExpression.TOKEN_TYPE_LITERAL)].concat(
                     tokenizedCriteria
                 )
+                if(range.length == 5) {
+                    console.log("computedResult 3");
+                }
 
                 computedResult = evalExpression.compute(tokens)
+                if(range.length == 5) {
+                    console.log("computedResult 4");
+                }
             }
 
             if(range.length == 5) {
