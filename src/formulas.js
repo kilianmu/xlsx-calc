@@ -136,6 +136,8 @@ function sumifs() {
                     )
                     computedResult = evalExpression.compute(tokens)
                     if(range.length == rangeLength && i == 31) {
+                        console.log(new Date(valueToTest).getTime());
+                        console.log(new Date(criteria).getTime());
                         console.log("checking");
                         console.log(tokens);
                         console.log(computedResult);
