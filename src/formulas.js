@@ -110,7 +110,6 @@ function sumifs() {
 
     if(range.length == rangeLength) {
         console.log(criterias);
-        console.log("criteriaLength-2: "+criteriaLength);
     }
 
 
@@ -125,9 +124,6 @@ function sumifs() {
             const isWildcard = criteria === void 0 || criteria === '*'
 
             if(range.length == rangeLength) {
-                // Get current timezone offset in minutes
-                const offsetMinutes = new Date().getTimezoneOffset();
-                console.log("offsetMinutes "+offsetMinutes);
 
                 console.log("i: "+i+" | j: "+j+" | isWildcard: "+isWildcard);
                 console.log("valueToTest: "+valueToTest);
@@ -145,7 +141,10 @@ function sumifs() {
                 const tokens = [evalExpression.createToken(valueToTest, evalExpression.TOKEN_TYPE_LITERAL)].concat(
                     tokenizedCriteria
                 )
-
+                console.log("checking");
+                console.log(valueToTest);
+                console.log(tokenizedCriteria);
+                console.log(tokens);
                 computedResult = evalExpression.compute(tokens)
             }
 
