@@ -123,6 +123,7 @@ function sumifs() {
                 const valueToTest = criterias[j * 2][i]
                 const criteria = criterias[j * 2 + 1]
                 const isWildcard = criteria === void 0 || criteria === '*'
+                console.log("i: "+valueToTest+" | "+criteria);
 
                 let computedResult = false
 
