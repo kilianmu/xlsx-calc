@@ -129,14 +129,16 @@ function sumifs() {
             if(range.length == rangeLength) {
                 console.log("offesttimes");
                 // Get current timezone offset in minutes
-                const offsetMinutes = new Date().getTimezoneOffset()
+                const offsetMinutes = new Date().getTimezoneOffset();
+                console.log("offsetMinutes "+offsetMinutes);
 
 // Convert to hours and minutes
-                const offsetHours = Math.floor(Math.abs(offsetMinutes) / 60)
-                const offsetMinutesRemainder = Math.abs(offsetMinutes) % 60
-                const offsetSign = offsetMinutes > 0 ? '-' : '+'
-
-                console.log("Current timezone: UTC "+offsetHours+" | "+offsetString+" | "+offsetMinutesRemainder+" | "+offsetMinutesRemainder);
+                const offsetHours = Math.floor(Math.abs(offsetMinutes) / 60);
+                console.log("offsetHours "+offsetHours);
+                const offsetMinutesRemainder = Math.abs(offsetMinutes) % 60;
+                console.log("offsetMinutesRemainder "+offsetMinutesRemainder);
+                const offsetSign = offsetMinutes > 0 ? '-' : '+';
+                console.log("offsetSign "+offsetSign);
 
                 console.log("i: "+i+" | j: "+j+" | isWildcard: "+isWildcard);
                 console.log("valueToTest: "+valueToTest);
