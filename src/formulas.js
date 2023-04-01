@@ -124,14 +124,19 @@ function sumifs() {
                 let criteria = criterias[j * 2 + 1]
                 const isWildcard = criteria === void 0 || criteria === '*'
 
-
-                console.log("i: "+valueToTest+" | "+criteria);
+                // If one is date, convert both to dates
+                const dateRegex = /^\d{1,2}\/\d{1,2}\/\d{4}$/
+                if(dateRegex.test(valueToTest) || dateRegex.test(criteria)){
+                    valueToTest = formatter.format(new Date(valueToTest));
+                    criteria = formatter.format(utils.serialNumberToDate(criteria));
+                }
 
                 let computedResult = false
 
                 if (isWildcard) {
                     computedResult = true
                 } else {
+
                     const tokenizedCriteria = evalExpression.parse(criteria + '')
                     const tokens = [evalExpression.createToken(valueToTest, evalExpression.TOKEN_TYPE_LITERAL)].concat(
                         tokenizedCriteria
@@ -139,21 +144,7 @@ function sumifs() {
                     computedResult = evalExpression.compute(tokens)
                     if(range.length == rangeLength && i == 31) {
 
-
-                        const dateRegex = /^\d{1,2}\/\d{1,2}\/\d{4}$/
-                        if (!dateRegex.test(valueToTest)) {
-                            console.log("valueToTest no date");
-                        } else {
-                            console.log("valueToTest date");
-                        }
-                        if (!dateRegex.test(criteria)) {
-                            console.log("criteria no date");
-                        } else {
-                            console.log("criteria date");
-                        }
-
-                        console.log(formatter.format(new Date(valueToTest)));
-                        console.log(formatter.format(utils.serialNumberToDate(criteria)));
+                        console.log("i: "+i+" | "+valueToTest+" | "+criteria);
 
                         console.log("checking");
                         console.log(tokens);
