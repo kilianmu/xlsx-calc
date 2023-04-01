@@ -123,15 +123,6 @@ function sumifs() {
             const criteria = criterias[j * 2 + 1]
             const isWildcard = criteria === void 0 || criteria === '*'
 
-            if(range.length == rangeLength && i == 31) {
-
-                console.log("i: "+i+" | j: "+j+" | isWildcard: "+isWildcard);
-                console.log("valueToTest: "+valueToTest);
-                console.log(utils.parseDate(valueToTest));
-                console.log("criteria: "+criteria);
-                console.log(utils.parseDate(criteria));
-            }
-
             let computedResult = false
 
             if (isWildcard) {
@@ -141,17 +132,13 @@ function sumifs() {
                 const tokens = [evalExpression.createToken(valueToTest, evalExpression.TOKEN_TYPE_LITERAL)].concat(
                     tokenizedCriteria
                 )
-                if(range.length == rangeLength && i == 31) {
+                /*if(range.length == rangeLength && i == 31) {
                     console.log("checking");
                     console.log(valueToTest);
                     console.log(tokenizedCriteria);
                     console.log(tokens);
-                }
+                }*/
                 computedResult = evalExpression.compute(tokens)
-            }
-
-            if(range.length == rangeLength) {
-                console.log("computedResult: "+computedResult);
             }
 
             // Criterias are calculated as AND so any `false` breakes the loop as unmeet condition
@@ -163,8 +150,14 @@ function sumifs() {
             isMeetCondition = true
         }
 
-        if(range.length == rangeLength) {
-            console.log("isMeetCondition: "+isMeetCondition);
+        if(range.length == rangeLength && i == 31 && isMeetCondition == true) {
+            console.log("result: "+result);
+            console.log("range[i]: "+range[i]);
+            console.log("i: "+i+" | j: "+j+" | isWildcard: "+isWildcard);
+            console.log("valueToTest: "+valueToTest);
+            console.log(utils.parseDate(valueToTest));
+            console.log("criteria: "+criteria);
+            console.log(utils.parseDate(criteria));
         }
 
         if (isMeetCondition) {
