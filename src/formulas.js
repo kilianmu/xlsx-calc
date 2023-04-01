@@ -118,10 +118,8 @@ function sumifs() {
 
     for (let i = 0; i < range.length; i++) {
         let isMeetCondition = false
-        console.log("counter-i: "+i);
 
         for (let j = 0; j < criteriaLength; j++) {
-            console.log("counter-j: "+j);
             const valueToTest = criterias[j * 2][i]
             const criteria = criterias[j * 2 + 1]
             const isWildcard = criteria === void 0 || criteria === '*'
@@ -131,14 +129,6 @@ function sumifs() {
                 // Get current timezone offset in minutes
                 const offsetMinutes = new Date().getTimezoneOffset();
                 console.log("offsetMinutes "+offsetMinutes);
-
-// Convert to hours and minutes
-                const offsetHours = Math.floor(Math.abs(offsetMinutes) / 60);
-                console.log("offsetHours "+offsetHours);
-                const offsetMinutesRemainder = Math.abs(offsetMinutes) % 60;
-                console.log("offsetMinutesRemainder "+offsetMinutesRemainder);
-                const offsetSign = offsetMinutes > 0 ? '-' : '+';
-                console.log("offsetSign "+offsetSign);
 
                 console.log("i: "+i+" | j: "+j+" | isWildcard: "+isWildcard);
                 console.log("valueToTest: "+valueToTest);
@@ -155,8 +145,6 @@ function sumifs() {
                 const tokenizedCriteria = evalExpression.parse(criteria + '')
                 if(range.length == rangeLength) {
                     console.log("computedResult 2");
-                    console.log("tokenizedCriteria: "+tokenizedCriteria);
-                    console.log("TOKEN_TYPE_LITERAL: "+evalExpression.TOKEN_TYPE_LITERAL);
                 }
                 const tokens = [evalExpression.createToken(valueToTest, evalExpression.TOKEN_TYPE_LITERAL)].concat(
                     tokenizedCriteria
