@@ -120,9 +120,11 @@ function sumifs() {
             let isMeetCondition = false
 
             for (let j = 0; j < criteriaLength; j++) {
-                const valueToTest = criterias[j * 2][i]
-                const criteria = criterias[j * 2 + 1]
+                let valueToTest = criterias[j * 2][i]
+                let criteria = criterias[j * 2 + 1]
                 const isWildcard = criteria === void 0 || criteria === '*'
+
+
                 console.log("i: "+valueToTest+" | "+criteria);
 
                 let computedResult = false
@@ -138,7 +140,8 @@ function sumifs() {
                     if(range.length == rangeLength && i == 31) {
                         console.log(formatter.format(new Date(valueToTest)));
                         console.log(new Date(criteria));
-                        console.log(new Date((serialNumber - 25569) * 86400 * 1000))
+                        console.log(formatter.format(new Date((criteria - 25569) * 86400 * 1000)))
+                        console.log(new Date((criteria - 25569) * 86400 * 1000))
                         console.log("checking");
                         console.log(tokens);
                         console.log(computedResult);
