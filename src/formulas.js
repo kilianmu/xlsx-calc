@@ -118,8 +118,10 @@ function sumifs() {
 
     for (let i = 0; i < range.length; i++) {
         let isMeetCondition = false
+        console.log("counter-i: "+i);
 
         for (let j = 0; j < criteriaLength; j++) {
+            console.log("counter-j: "+j);
             const valueToTest = criterias[j * 2][i]
             const criteria = criterias[j * 2 + 1]
             const isWildcard = criteria === void 0 || criteria === '*'
