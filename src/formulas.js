@@ -6,7 +6,7 @@
 const utils = require('./utils/common.js');
 const error = require('./utils/error.js');
 const evalExpression = require('./utils/criteria-eval.js');
-const formatter = new Intl.DateTimeFormat('de-DE', { timeZone: 'Europe/Berlin' });
+const formatter = new Intl.DateTimeFormat('en-US', { timeZone: 'Europe/Berlin' });
 
 let formulas = {
     'FLOOR': Math.floor,
