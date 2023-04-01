@@ -87,80 +87,85 @@ function sumif(){
 }
 
 function sumifs() {
-    const args = utils.argsToArray(arguments)
-    const range = utils.parseNumberArray(utils.flatten(args.shift()))
+    try {
+        const args = utils.argsToArray(arguments)
+        const range = utils.parseNumberArray(utils.flatten(args.shift()))
 
-    let rangeLength = 241;
+        let rangeLength = 241;
 
-    if(range.length == rangeLength){
-        console.log("sumifs");
-        console.log(range)
-    }
+        if(range.length == rangeLength){
+            console.log("sumifs");
+            console.log(range)
+        }
 
-    if (range instanceof Error) {
-        return range
-    }
+        if (range instanceof Error) {
+            return range
+        }
 
-    const criterias = args
-    const criteriaLength = criterias.length / 2
+        const criterias = args
+        const criteriaLength = criterias.length / 2
 
-    for (let i = 0; i < criteriaLength; i++) {
-        criterias[i * 2] = utils.flatten(criterias[i * 2])
-    }
+        for (let i = 0; i < criteriaLength; i++) {
+            criterias[i * 2] = utils.flatten(criterias[i * 2])
+        }
 
-    if(range.length == rangeLength) {
-        console.log(criterias);
-    }
+        if(range.length == rangeLength) {
+            console.log(criterias);
+        }
 
 
-    let result = 0
+        let result = 0
 
-    for (let i = 0; i < range.length; i++) {
-        let isMeetCondition = false
+        for (let i = 0; i < range.length; i++) {
+            let isMeetCondition = false
 
-        for (let j = 0; j < criteriaLength; j++) {
-            const valueToTest = criterias[j * 2][i]
-            const criteria = criterias[j * 2 + 1]
-            const isWildcard = criteria === void 0 || criteria === '*'
+            for (let j = 0; j < criteriaLength; j++) {
+                const valueToTest = criterias[j * 2][i]
+                const criteria = criterias[j * 2 + 1]
+                const isWildcard = criteria === void 0 || criteria === '*'
 
-            let computedResult = false
+                let computedResult = false
 
-            if (isWildcard) {
-                computedResult = true
-            } else {
-                const tokenizedCriteria = evalExpression.parse(criteria + '')
-                const tokens = [evalExpression.createToken(valueToTest, evalExpression.TOKEN_TYPE_LITERAL)].concat(
-                    tokenizedCriteria
-                )
-                /*if(range.length == rangeLength && i == 31) {
-                    console.log("checking");
-                    console.log(valueToTest);
-                    console.log(tokenizedCriteria);
-                    console.log(tokens);
-                }*/
-                computedResult = evalExpression.compute(tokens)
+                if (isWildcard) {
+                    computedResult = true
+                } else {
+                    const tokenizedCriteria = evalExpression.parse(criteria + '')
+                    const tokens = [evalExpression.createToken(valueToTest, evalExpression.TOKEN_TYPE_LITERAL)].concat(
+                        tokenizedCriteria
+                    )
+                    /*if(range.length == rangeLength && i == 31) {
+                        console.log("checking");
+                        console.log(valueToTest);
+                        console.log(tokenizedCriteria);
+                        console.log(tokens);
+                    }*/
+                    computedResult = evalExpression.compute(tokens)
+                }
+
+                // Criterias are calculated as AND so any `false` breakes the loop as unmeet condition
+                if (!computedResult) {
+                    isMeetCondition = false
+                    break
+                }
+
+                isMeetCondition = true
             }
 
-            // Criterias are calculated as AND so any `false` breakes the loop as unmeet condition
-            if (!computedResult) {
-                isMeetCondition = false
-                break
+            if(range.length == rangeLength && i == 31 && isMeetCondition == true) {
+                console.log("result: "+result);
+                console.log("range[i]: "+range[i]);
             }
 
-            isMeetCondition = true
+            if (isMeetCondition) {
+                result += range[i]
+            }
         }
-
-        if(range.length == rangeLength && i == 31 && isMeetCondition == true) {
-            console.log("result: "+result);
-            console.log("range[i]: "+range[i]);
-        }
-
-        if (isMeetCondition) {
-            result += range[i]
-        }
+        console.log(result);
+        return result
+    } catch (error) {
+        console.error(error)
+        // handle error here
     }
-    console.log(result);
-    return result
 }
 
 function correl(a,b){
