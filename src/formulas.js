@@ -107,8 +107,11 @@ function sumifs() {
     for (let i = 0; i < criteriaLength; i++) {
         criterias[i * 2] = utils.flatten(criterias[i * 2])
     }
-    //console.log(criterias);
-    //console.log(criteriaLength);
+
+    if(range.length == 5) {
+        console.log(criterias);
+        console.log(criteriaLength);
+    }
 
 
     let result = 0
