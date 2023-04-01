@@ -89,8 +89,12 @@ function sumif(){
 function sumifs() {
     const args = utils.argsToArray(arguments)
     const range = utils.parseNumberArray(utils.flatten(args.shift()))
-    console.log("sumifs");
-    console.log(args);
+
+    if(range.length == 5){
+        console.log("sumifs");
+        console.log(args);
+    }
+
     //console.log(range);
 
     if (range instanceof Error) {
@@ -117,8 +121,10 @@ function sumifs() {
             const criteria = criterias[j * 2 + 1]
             const isWildcard = criteria === void 0 || criteria === '*'
 
-            console.log(valueToTest);
-            console.log(criteria);
+            if(range.length == 5) {
+                console.log(valueToTest);
+                console.log(criteria);
+            }
 
             let computedResult = false
 
@@ -132,7 +138,10 @@ function sumifs() {
 
                 computedResult = evalExpression.compute(tokens)
             }
-            console.log(computedResult);
+
+            if(range.length == 5) {
+                console.log(computedResult);
+            }
 
             // Criterias are calculated as AND so any `false` breakes the loop as unmeet condition
             if (!computedResult) {
@@ -142,7 +151,11 @@ function sumifs() {
 
             isMeetCondition = true
         }
-        console.log(isMeetCondition);
+
+        if(range.length == 5) {
+            console.log(isMeetCondition);
+        }
+
         if (isMeetCondition) {
             result += range[i]
         }
