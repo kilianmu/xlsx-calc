@@ -124,6 +124,10 @@ function sumifs() {
                 let criteria = criterias[j * 2 + 1]
                 const isWildcard = criteria === void 0 || criteria === '*'
 
+                if(range.length == rangeLength && i == 31) {
+                    console.log("i1: "+i+" | "+valueToTest+" | "+criteria);
+                    console.log(new Date(valueToTest));
+                }
                 // If one is date, convert both to dates
                 const dateRegex = /^\d{1,2}\/\d{1,2}\/\d{4}$/
                 if(dateRegex.test(valueToTest) || dateRegex.test(criteria)){
@@ -148,7 +152,7 @@ function sumifs() {
                     computedResult = evalExpression.compute(tokens)
                     if(range.length == rangeLength && i == 31) {
 
-                        console.log("i: "+i+" | "+valueToTest+" | "+criteria);
+                        console.log("i2: "+i+" | "+valueToTest+" | "+criteria);
 
                         console.log("checking");
                         console.log(tokens);
