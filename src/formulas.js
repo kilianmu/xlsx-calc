@@ -279,6 +279,8 @@ function sumproduct() {
     if (!consistentSizeRanges(arguments)) {
         throw Error('#VALUE!');
     }
+    console.logs("sumproduct:");
+    console.log(arguments);
     // throw error if any of the cells passed in arguments is in error
     for (var i = 0; i < arguments.length; i++) {
         var row = arguments[i];
