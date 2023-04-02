@@ -216,11 +216,16 @@ function eomonth() {
     }
 
     months = parseInt(months, 10)
-    console.log(arguments);
-    console.log(start_date);
-    console.log(start_date.getFullYear());
 
-    let return_date = formatter.format(new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0));
+    let return_date;
+    if(start_date == undefined) {
+        console.log(arguments);
+        console.log(start_date);
+        console.log(start_date.getFullYear());
+        return_date = 0;
+    } else {
+        return_date = formatter.format(new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0));
+    }
     console.log(return_date);
     return return_date;
 }
