@@ -129,6 +129,7 @@ function sumifs() {
                 if(dateRegex.test(valueToTest) || dateRegex.test(criteria)){
                     valueToTest = formatter.format(new Date(valueToTest));
                     console.log(criteria);
+                    console.log("================================");
                     console.log(utils.serialNumberToDate(criteria));
                     criteria = formatter.format(utils.serialNumberToDate(criteria));
                 }
