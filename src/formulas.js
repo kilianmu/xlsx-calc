@@ -230,9 +230,9 @@ function eomonth() {
 
     let return_date;
     if(start_date == undefined) {
-        console.log("start_date is undefined");
-        console.log(arguments);
-        console.log(start_date);
+        //console.log("start_date is undefined");
+        //console.log(arguments);
+        //console.log(start_date);
         return_date = 0;
     } else {
         return_date = formatter.format(new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0));
@@ -245,7 +245,7 @@ function isnumber(x) {
 
 function sumproduct() {
     //console.log("sumproduct: "+string);
-    console.log("sumproduct 1:");
+    //console.log("sumproduct 1:");
     var parseNumber = function (string) {
         if (string === undefined || string === '' || string === null) {
             return 0;
@@ -273,15 +273,15 @@ function sumproduct() {
         }
         return true;
     };
-    console.log("sumproduct 2:");
+    //console.log("sumproduct 2:");
     if (!arguments || arguments.length === 0) {
         throw Error('#VALUE!');
     }
     if (!consistentSizeRanges(arguments)) {
         throw Error('#VALUE!');
     }
-    console.log("sumproduct 3:");
-    console.log(arguments);
+    //console.log("sumproduct 3:");
+    //console.log(arguments);
     // throw error if any of the cells passed in arguments is in error
     for (var i = 0; i < arguments.length; i++) {
         var row = arguments[i];
