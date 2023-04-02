@@ -86,6 +86,8 @@ module.exports = function Exp(formula) {
                         let b = args[i + 1].calc();
                         if (Array.isArray(a)) {
                             console.log(a);
+                            console.log(getCurrentCellIndex() - 1);
+                            console.log(a[getCurrentCellIndex() - 1]);
                             a = a[getCurrentCellIndex() - 1][0];
                         }
                         if (Array.isArray(b)) {
