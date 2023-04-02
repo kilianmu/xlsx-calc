@@ -93,11 +93,6 @@ function sumifs() {
 
         let rangeLength = 241;
 
-        if(range.length == rangeLength){
-            console.log("sumifs");
-            console.log(range)
-        }
-
         if (range instanceof Error) {
             return range
         }
@@ -109,11 +104,6 @@ function sumifs() {
             criterias[i * 2] = utils.flatten(criterias[i * 2])
         }
 
-        if(range.length == rangeLength) {
-            console.log(criterias);
-        }
-
-
         let result = 0
 
         for (let i = 0; i < range.length; i++) {
@@ -124,10 +114,6 @@ function sumifs() {
                 let criteria = criterias[j * 2 + 1]
                 const isWildcard = criteria === void 0 || criteria === '*'
 
-                if(range.length == rangeLength && i == 31) {
-                    console.log("i1: "+i+" | "+valueToTest+" | "+criteria);
-                    console.log(utils.serialNumberToDate(valueToTest));
-                }
                 // If one is date, convert both to dates
                 const dateRegex = /^\d{1,2}\/\d{1,2}\/\d{4}$/
                 if(dateRegex.test(valueToTest) || dateRegex.test(criteria)){
@@ -150,14 +136,6 @@ function sumifs() {
                         tokenizedCriteria
                     )
                     computedResult = evalExpression.compute(tokens)
-                    if(range.length == rangeLength && i == 31) {
-
-                        console.log("i2: "+i+" | "+valueToTest+" | "+criteria);
-
-                        console.log("checking");
-                        console.log(tokens);
-                        console.log(computedResult);
-                    }
                 }
 
                 // Criterias are calculated as AND so any `false` breakes the loop as unmeet condition
@@ -169,16 +147,10 @@ function sumifs() {
                 isMeetCondition = true
             }
 
-            if(range.length == rangeLength && i == 31 && isMeetCondition == true) {
-                console.log("result: "+result);
-                console.log("range[i]: "+range[i]);
-            }
-
             if (isMeetCondition) {
                 result += range[i]
             }
         }
-        console.log(result);
         return result
     } catch (error) {
         console.error(error)
@@ -245,7 +217,7 @@ function eomonth() {
 
     months = parseInt(months, 10)
 
-
+    console.log(start_date + " | " + start_date.getFullYear());
     let return_date = new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0);
     return formatter.format(return_date);
 }
@@ -254,6 +226,7 @@ function isnumber(x) {
 }
 
 function sumproduct() {
+    console.log("sumproduct: "+string);
     var parseNumber = function (string) {
         if (string === undefined || string === '' || string === null) {
             return 0;
