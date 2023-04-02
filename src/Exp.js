@@ -18,7 +18,7 @@ module.exports = function Exp(formula) {
     
     function update_cell_value() {
         try {
-            console.log('update_cell_value: '+formula.cell.name);
+            console.log('update_cell_value: '+formula.cell.f);
             if (Array.isArray(self.args) 
                     && self.args.length === 1
                     && self.args[0] instanceof Range) {
