@@ -219,9 +219,9 @@ function eomonth() {
 
     let return_date;
     if(start_date == undefined) {
+        console.log("start_date is undefined");
         console.log(arguments);
         console.log(start_date);
-        console.log(start_date.getFullYear());
         return_date = 0;
     } else {
         return_date = formatter.format(new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0));
