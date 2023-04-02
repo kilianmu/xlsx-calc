@@ -126,13 +126,13 @@ function sumifs() {
 
                 if(range.length == rangeLength && i == 31) {
                     console.log("i1: "+i+" | "+valueToTest+" | "+criteria);
-                    console.log(new Date(valueToTest));
+                    console.log(utils.serialNumberToDate(valueToTest));
                 }
                 // If one is date, convert both to dates
                 const dateRegex = /^\d{1,2}\/\d{1,2}\/\d{4}$/
                 if(dateRegex.test(valueToTest) || dateRegex.test(criteria)){
                     if(!dateRegex.test(valueToTest)){
-                        valueToTest = formatter.format(new Date(valueToTest));
+                        valueToTest = formatter.format(utils.serialNumberToDate(valueToTest));
                     }
                     if(!dateRegex.test(criteria)){
                         criteria = formatter.format(utils.serialNumberToDate(criteria));
