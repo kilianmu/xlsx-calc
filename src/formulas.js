@@ -216,7 +216,7 @@ function eomonth() {
     }
 
     months = parseInt(months, 10)
-
+    console.log(arguments);
     console.log(start_date);
     console.log(start_date.getFullYear());
 
