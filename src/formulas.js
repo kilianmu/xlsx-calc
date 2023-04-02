@@ -273,14 +273,14 @@ function sumproduct() {
         }
         return true;
     };
-    console.logs("sumproduct 2:");
+    console.log("sumproduct 2:");
     if (!arguments || arguments.length === 0) {
         throw Error('#VALUE!');
     }
     if (!consistentSizeRanges(arguments)) {
         throw Error('#VALUE!');
     }
-    console.logs("sumproduct 3:");
+    console.log("sumproduct 3:");
     console.log(arguments);
     // throw error if any of the cells passed in arguments is in error
     for (var i = 0; i < arguments.length; i++) {
