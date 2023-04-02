@@ -58,6 +58,7 @@ let formulas = {
     'CEILING': ceiling,
     'XIRR': xirr,
     'EOMONTH': eomonth,
+    'XLOOKUP': xlookup,
 };
 
 /* formulas */
@@ -200,7 +201,9 @@ function today() {
 function xirr() {
     return 4;
 }
-
+function xlookup() {
+    return 40;
+}
 
 function eomonth() {
     let start_date = arguments["0"];
@@ -226,7 +229,6 @@ function eomonth() {
     } else {
         return_date = formatter.format(new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0));
     }
-    console.log(return_date);
     return return_date;
 }
 function isnumber(x) {
