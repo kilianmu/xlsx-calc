@@ -245,7 +245,7 @@ function isnumber(x) {
 
 function sumproduct() {
     //console.log("sumproduct: "+string);
-    console.logs("sumproduct 1:");
+    console.log("sumproduct 1:");
     var parseNumber = function (string) {
         if (string === undefined || string === '' || string === null) {
             return 0;
