@@ -18,7 +18,7 @@ module.exports = function Exp(formula) {
     
     function update_cell_value() {
         try {
-            console.log('update_cell_value: '+formula.cell.f);
+            //console.log('update_cell_value: '+formula.cell.f);
             if (Array.isArray(self.args) 
                     && self.args.length === 1
                     && self.args[0] instanceof Range) {
@@ -85,9 +85,9 @@ module.exports = function Exp(formula) {
                         let a = args[i - 1].calc();
                         let b = args[i + 1].calc();
                         if (Array.isArray(a)) {
-                            console.log(a);
-                            console.log(getCurrentCellIndex() - 1);
-                            console.log(a[getCurrentCellIndex() - 1]);
+                           // console.log(a);
+                            //console.log(getCurrentCellIndex() - 1);
+                           // console.log(a[getCurrentCellIndex() - 1]);
                             a = a[getCurrentCellIndex() - 1][0];
                         }
                         if (Array.isArray(b)) {
@@ -164,7 +164,7 @@ module.exports = function Exp(formula) {
             return a < b;
         });
         exec('>', args, function(a, b) {
-            console.log("a: " + a + " b: " + b);
+            //console.log("a: " + a + " b: " + b);
             return a > b;
         });
         exec('>=', args, function(a, b) {
