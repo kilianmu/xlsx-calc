@@ -127,11 +127,12 @@ function sumifs() {
                 // If one is date, convert both to dates
                 const dateRegex = /^\d{1,2}\/\d{1,2}\/\d{4}$/
                 if(dateRegex.test(valueToTest) || dateRegex.test(criteria)){
-                    valueToTest = formatter.format(new Date(valueToTest));
-                    console.log(criteria);
-                    console.log("================================");
-                    console.log(utils.serialNumberToDate(criteria));
-                    criteria = formatter.format(utils.serialNumberToDate(criteria));
+                    if(!dateRegex.test(valueToTest)){
+                        valueToTest = formatter.format(new Date(valueToTest));
+                    }
+                    if(!dateRegex.test(criteria)){
+                        criteria = formatter.format(utils.serialNumberToDate(criteria));
+                    }
                 }
 
                 let computedResult = false
