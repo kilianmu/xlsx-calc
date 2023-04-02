@@ -245,6 +245,7 @@ function isnumber(x) {
 
 function sumproduct() {
     //console.log("sumproduct: "+string);
+    console.logs("sumproduct 1:");
     var parseNumber = function (string) {
         if (string === undefined || string === '' || string === null) {
             return 0;
@@ -272,14 +273,14 @@ function sumproduct() {
         }
         return true;
     };
-
+    console.logs("sumproduct 2:");
     if (!arguments || arguments.length === 0) {
         throw Error('#VALUE!');
     }
     if (!consistentSizeRanges(arguments)) {
         throw Error('#VALUE!');
     }
-    console.logs("sumproduct:");
+    console.logs("sumproduct 3:");
     console.log(arguments);
     // throw error if any of the cells passed in arguments is in error
     for (var i = 0; i < arguments.length; i++) {
