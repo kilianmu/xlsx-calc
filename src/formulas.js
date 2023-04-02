@@ -57,6 +57,7 @@ let formulas = {
     'SUBSTITUTE': substitute,
     'CEILING': ceiling,
     'XIRR': xirr,
+    'SEQUENCE': sequence,
     'EOMONTH': eomonth,
     'XLOOKUP': xlookup,
 };
@@ -199,10 +200,13 @@ function today() {
     return today;
 }
 function xirr() {
-    return 4;
+    return 0.01;
 }
 function xlookup() {
-    return 40;
+    return 0.01;
+}
+function sequence() {
+    return 0.01;
 }
 
 function eomonth() {
