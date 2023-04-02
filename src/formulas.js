@@ -220,8 +220,9 @@ function eomonth() {
     console.log(start_date);
     console.log(start_date.getFullYear());
 
-    let return_date = new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0);
-    return formatter.format(return_date);
+    let return_date = formatter.format(new Date(start_date.getFullYear(), start_date.getMonth() + months + 1, 0));
+    console.log(return_date);
+    return return_date;
 }
 function isnumber(x) {
     return !isNaN(x);
