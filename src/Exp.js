@@ -85,6 +85,7 @@ module.exports = function Exp(formula) {
                         let a = args[i - 1].calc();
                         let b = args[i + 1].calc();
                         if (Array.isArray(a)) {
+                            console.log(a);
                             a = a[getCurrentCellIndex() - 1][0];
                         }
                         if (Array.isArray(b)) {
@@ -161,6 +162,7 @@ module.exports = function Exp(formula) {
             return a < b;
         });
         exec('>', args, function(a, b) {
+            console.log("a: " + a + " b: " + b);
             return a > b;
         });
         exec('>=', args, function(a, b) {
