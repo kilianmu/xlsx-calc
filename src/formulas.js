@@ -336,24 +336,28 @@ function sumproduct() {
     var k;
     var _i;
     var _ij;
-    for (var i = 0; i < arguments[0].length; i++) {
-        if (!(arguments[0][i] instanceof Array)) {
-            product = 1;
-            for (k = 1; k < arrays; k++) {
-                _i = parseNumber(arguments[k - 1][i]);
-
-                product *= _i;
-            }
-            result += product;
-        } else {
-            for (var j = 0; j < arguments[0][i].length; j++) {
+    if (!Array.isArray(arguments[0])) {
+        result = arguments[0];
+    } else {
+        for (var i = 0; i < arguments[0].length; i++) {
+            if (!(arguments[0][i] instanceof Array)) {
                 product = 1;
                 for (k = 1; k < arrays; k++) {
-                    _ij = parseNumber(arguments[k - 1][i][j]);
+                    _i = parseNumber(arguments[k - 1][i]);
 
-                    product *= _ij;
+                    product *= _i;
                 }
                 result += product;
+            } else {
+                for (var j = 0; j < arguments[0][i].length; j++) {
+                    product = 1;
+                    for (k = 1; k < arrays; k++) {
+                        _ij = parseNumber(arguments[k - 1][i][j]);
+
+                        product *= _ij;
+                    }
+                    result += product;
+                }
             }
         }
     }
