@@ -143,7 +143,7 @@ function sumifs() {
                     computedResult = evalExpression.compute(tokens);
 
                     if(range.length == 241){
-                        console.log("computedResult:");
+                        console.log("computedResult: "+i);
                         console.log(tokens);
                         console.log(computedResult);
                     }
