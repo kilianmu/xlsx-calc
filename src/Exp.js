@@ -72,6 +72,7 @@ module.exports = function Exp(formula) {
     }
 
     function getCurrentCellIndex() {
+        console.log(+self.formula.name);
         return +self.formula.name.replace(/[^0-9]/g, '');
     }
     
