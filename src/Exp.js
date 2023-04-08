@@ -96,8 +96,8 @@ module.exports = function Exp(formula) {
                                 a = a[0][0];
                                 console.log(a);
                                 console.log(formula.name);
-                                console.log(args);
-                                console.log("CellIndex: "+getCurrentCellIndex());
+                              //  console.log(args);
+                              //  console.log("CellIndex: "+getCurrentCellIndex());
                             }
                         }
                         if (Array.isArray(b)) {
@@ -107,8 +107,8 @@ module.exports = function Exp(formula) {
                                 b = b[0][0];
                                 console.log(b);
                                 console.log(formula.name);
-                                console.log(args);
-                                console.log("CellIndex: "+getCurrentCellIndex());
+                               // console.log(args);
+                               // console.log("CellIndex: "+getCurrentCellIndex());
                             }
                         }
 
