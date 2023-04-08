@@ -246,7 +246,7 @@ function isnumber(x) {
 }
 
 function sumproduct() {
-    console.log("sumproduct: "+string);
+
     //console.log("sumproduct 1:");
     var parseNumber = function (string) {
         if (string === undefined || string === '' || string === null) {
@@ -258,6 +258,7 @@ function sumproduct() {
         return 0;
     },
     consistentSizeRanges = function (matrixArray) {
+        console.log("matrixArray: "+matrixArray);
         var getRowCount = function(matrix) {
                 return matrix.length;
             },
@@ -284,9 +285,10 @@ function sumproduct() {
         throw Error('#VALUE!');
     }
     //console.log("sumproduct 3:");
-    //console.log(arguments);
+    //
     // throw error if any of the cells passed in arguments is in error
     for (var i = 0; i < arguments.length; i++) {
+        console.log(arguments);
         var row = arguments[i];
         if (Array.isArray(row)) {
             for (var j = 0; j < row.length; j++) {
