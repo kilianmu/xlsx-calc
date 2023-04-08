@@ -357,7 +357,9 @@ function sumproduct() {
             }
         }
     }
-    console.log("Result: "+result);
+    if(result != 0) {
+        console.log("Result: " + result);
+    }
     return result;
 }
 
