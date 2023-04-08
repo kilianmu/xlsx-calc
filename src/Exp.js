@@ -24,12 +24,12 @@ module.exports = function Exp(formula) {
                 throw Error('#VALUE!');
             }
             if(formula.cell.f.includes("+SUMPRODUCT(")) { //  && formula.cell.f.includes("*12)")
-                console.log('calc_start: '+ formula.cell.name + " | " + formula.cell.f);
+                console.log('calc_start: '+ formula.name + " | " + formula.cell.f);
             }
             formula.cell.v = self.calc();
             if(formula.cell.f.includes("+SUMPRODUCT(")) { //  && formula.cell.f.includes("*12)")
                 console.log(formula);
-                console.log('calc_end: '+ formula.cell.name + " | " + formula.cell.f);
+                console.log('calc_end: '+ formula.name + " | " + formula.cell.f);
             }
             if (typeof(formula.cell.v) === 'string') {
                 formula.cell.t = 's';
