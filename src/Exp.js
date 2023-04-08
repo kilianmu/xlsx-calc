@@ -90,22 +90,22 @@ module.exports = function Exp(formula) {
                         let a = args[i - 1].calc();
                         let b = args[i + 1].calc();
                         if (Array.isArray(a)) {
-                            console.log(a);
                             if(getCurrentCellIndex()<a.length - 1) {
                                 a = a[getCurrentCellIndex() - 1][0];
                             } else {
                                 a = a[0][0];
+                                console.log(a);
                                 console.log(formula.name);
                                 console.log(args);
                                 console.log("CellIndex: "+getCurrentCellIndex());
                             }
                         }
                         if (Array.isArray(b)) {
-                            console.log(b);
                             if(getCurrentCellIndex()<b.length - 1) {
                                 b = b[getCurrentCellIndex() - 1][0];
                             } else {
                                 b = b[0][0];
+                                console.log(b);
                                 console.log(formula.name);
                                 console.log(args);
                                 console.log("CellIndex: "+getCurrentCellIndex());
