@@ -258,8 +258,6 @@ function sumproduct() {
         return 0;
     },
     consistentSizeRanges = function (matrixArray) {
-        console.log("matrixArray: ");
-        console.log(matrixArray);
         var getRowCount = function(matrix) {
                 return matrix.length;
             },
@@ -267,6 +265,7 @@ function sumproduct() {
                 if (Array.isArray(matrix)) {
                     return matrix[0].length;
                 } else {
+                    console.log(matrixArray);
                     console.log('matrix is not an array');
                     return 1;
                 }
