@@ -99,9 +99,9 @@ function sumifs() {
             return range
         }
 
-        //console.log(args);
-        //console.log(range);
-        //console.log(range.length);
+        console.log(args);
+        console.log(range);
+        console.log(range.length);
 
         const criterias = args
         const criteriaLength = criterias.length / 2
