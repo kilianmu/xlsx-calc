@@ -157,16 +157,17 @@ module.exports = function Exp(formula) {
             return (+a) / (+b);
         });
         exec('*', args, function(a, b) {
+            console.log(args);
+            console.log(args[2]);
+            console.log(args[2].str_expression);
+            console.log(a);
+            console.log(b);
             return (+a) * (+b);
         });
         exec('+', args, function(a, b) {
             if (a instanceof Date && typeof b === 'number') {
                 b = b * MS_PER_DAY;
             }
-            console.log(args[2]);
-            console.log(args[2].str_expression);
-            console.log(a);
-            console.log(b);
             return (+a) + (+b);
         });
         exec('&', args, function(a, b) {
