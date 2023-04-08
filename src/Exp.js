@@ -30,7 +30,9 @@ module.exports = function Exp(formula) {
                 console.log('calc_start: ' + formula.cell.f);
             }
             formula.cell.v = self.calc();
-            console.log('calc_end: ' + formula.cell.f);
+            if(formula.cell.f.includes("+SUMIFS(")) { //  && formula.cell.f.includes("*12)")
+                console.log('calc_end: ' + formula.cell.f);
+            }
             if (typeof(formula.cell.v) === 'string') {
                 formula.cell.t = 's';
             }
