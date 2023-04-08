@@ -270,7 +270,7 @@ function sumproduct() {
                     return matrix[0].length;
                 } else {
                     console.log(matrixArray);
-                    console.log('matrix is not an array');
+                    //console.log('matrix is not an array');
                     return 1;
                 }
             },
