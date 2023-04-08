@@ -262,6 +262,7 @@ function sumproduct() {
                 return matrix.length;
             },
             getColCount = function(matrix) {
+                console.log(matrix);
                 return matrix[0].length;
             },
             rowCount = getRowCount(matrixArray[0]),
