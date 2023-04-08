@@ -28,7 +28,6 @@ module.exports = function Exp(formula) {
             }
             formula.cell.v = self.calc();
             if(formula.cell.f.includes("+SUMPRODUCT(")) { //  && formula.cell.f.includes("*12)")
-                console.log(formula);
                 console.log('calc_end: '+ formula.name + " | " + formula.cell.f);
             }
             if (typeof(formula.cell.v) === 'string') {
