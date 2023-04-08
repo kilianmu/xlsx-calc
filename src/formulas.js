@@ -809,7 +809,6 @@ function concatenate() {
 }
 
 function sum() {
-    console.log(arguments.length);
     if(arguments.length == 2){
         console.log(arguments);
     }
