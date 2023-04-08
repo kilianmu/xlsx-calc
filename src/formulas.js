@@ -329,6 +329,8 @@ function sumproduct() {
     var k;
     var _i;
     var _ij;
+    console.log(arguments);
+    console.log(result);
     if (!Array.isArray(arguments[0])) {
         result = arguments[0];
     } else {
