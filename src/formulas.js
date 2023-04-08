@@ -276,7 +276,7 @@ function sumproduct() {
             },
             rowCount = getRowCount(matrixArray[0]),
             colCount = getColCount(matrixArray[0]);
-
+        console.log("sumproduct: "+rowCount+" | "+colCount);
         for (var i = 1; i < matrixArray.length; i++) {
             if (getRowCount(matrixArray[i]) !== rowCount
                 || getColCount(matrixArray[i]) !== colCount) {
@@ -285,7 +285,7 @@ function sumproduct() {
         }
         return true;
     };
-    console.log("sumproduct: "+rowCount+" | "+colCount);
+
     if (!arguments || arguments.length === 0) {
         throw Error('#VALUE!');
     }
