@@ -144,9 +144,7 @@ module.exports = function Exp(formula) {
     self.calc = function() {
         let args = self.args.concat();
         exec_minus(args);
-        //console.log(args);
-        //console.log(a);
-        //console.log(b);
+        console.log(args);
         exec('^', args, function(a, b) {
             return Math.pow(+a, +b);
         });
@@ -157,7 +155,6 @@ module.exports = function Exp(formula) {
             return (+a) / (+b);
         });
         exec('*', args, function(a, b) {
-            console.log(args);
             console.log(args[2]);
             console.log(args[2].str_expression);
             console.log(a);
