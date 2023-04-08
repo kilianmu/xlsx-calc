@@ -264,8 +264,12 @@ function sumproduct() {
                 return matrix.length;
             },
             getColCount = function(matrix) {
-                console.log(matrix);
-                return matrix[0].length;
+                if (Array.isArray(matrix)) {
+                    return matrix[0].length;
+                } else {
+                    console.log('matrix is not an array');
+                    return 1;
+                }
             },
             rowCount = getRowCount(matrixArray[0]),
             colCount = getColCount(matrixArray[0]);
