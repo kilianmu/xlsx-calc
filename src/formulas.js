@@ -258,7 +258,8 @@ function sumproduct() {
         return 0;
     },
     consistentSizeRanges = function (matrixArray) {
-        console.log("matrixArray: "+matrixArray);
+        console.log("matrixArray: ");
+        console.log(matrixArray);
         var getRowCount = function(matrix) {
                 return matrix.length;
             },
