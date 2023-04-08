@@ -94,11 +94,10 @@ function sumifs() {
         const args = utils.argsToArray(arguments)
         const range = utils.parseNumberArray(utils.flatten(args.shift()))
 
-        let rangeLength = 241;
-
         if (range instanceof Error) {
             return range
         }
+        console.log(args);
 
         const criterias = args
         const criteriaLength = criterias.length / 2
@@ -810,7 +809,7 @@ function concatenate() {
 
 function sum() {
     if(arguments.length == 2 && arguments[0].length == 5){
-        console.log(arguments);
+    //    console.log(arguments);
     }
 
     var r = 0;
