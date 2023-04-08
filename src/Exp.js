@@ -18,9 +18,6 @@ module.exports = function Exp(formula) {
     
     function update_cell_value() {
         try {
-            if(formula.cell.f.includes("+SUMIFS(")) { //  && formula.cell.f.includes("*12)")
-                console.log('update_cell_value: ' + formula.cell.f);
-            }
             if (Array.isArray(self.args) 
                     && self.args.length === 1
                     && self.args[0] instanceof Range) {
@@ -147,6 +144,9 @@ module.exports = function Exp(formula) {
     self.calc = function() {
         let args = self.args.concat();
         exec_minus(args);
+        console.log(args);
+        console.log(a);
+        console.log(b);
         exec('^', args, function(a, b) {
             return Math.pow(+a, +b);
         });
