@@ -280,7 +280,7 @@ function sumproduct() {
             },
             rowCount = getRowCount(matrixArray[0]),
             colCount = getColCount(matrixArray[0]);
-        console.log("sumproduct: "+rowCount+" | "+colCount);
+
         for (var i = 1; i < matrixArray.length; i++) {
             if (getRowCount(matrixArray[i]) !== rowCount
                 || getColCount(matrixArray[i]) !== colCount) {
@@ -297,11 +297,9 @@ function sumproduct() {
     if (!consistentSizeRanges(arguments)) {
         throw Error('#VALUE!');
     }
-    console.log("sumproduct arguments.length: "+arguments.length);
 
     // throw error if any of the cells passed in arguments is in error
     for (var i = 0; i < arguments.length; i++) {
-        console.log(arguments);
         var row = arguments[i];
         if (Array.isArray(row)) {
             for (var j = 0; j < row.length; j++) {
@@ -329,7 +327,6 @@ function sumproduct() {
             }
         }
     }
-    console.log(arguments);
     var arrays = arguments.length + 1;
     var result = 0;
     var product;
@@ -360,9 +357,6 @@ function sumproduct() {
                 }
             }
         }
-    }
-    if(result != 0) {
-        console.log("Result: " + result);
     }
     return result;
 }
