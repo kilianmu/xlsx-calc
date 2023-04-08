@@ -285,14 +285,15 @@ function sumproduct() {
         }
         return true;
     };
-    console.log("sumproduct 2:");
+    console.log("sumproduct: "+rowCount+" | "+colCount);
     if (!arguments || arguments.length === 0) {
         throw Error('#VALUE!');
     }
     if (!consistentSizeRanges(arguments)) {
         throw Error('#VALUE!');
     }
-    console.log("sumproduct 3:");
+    console.log("sumproduct arguments.length: "+arguments.length);
+    console.log(arguments);
     // throw error if any of the cells passed in arguments is in error
     for (var i = 0; i < arguments.length; i++) {
         console.log(arguments);
