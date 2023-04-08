@@ -72,7 +72,6 @@ module.exports = function Exp(formula) {
     }
 
     function getCurrentCellIndex() {
-        console.log(+self.formula.name);
         return +self.formula.name.replace(/[^0-9]/g, '');
     }
     
@@ -91,14 +90,17 @@ module.exports = function Exp(formula) {
                         let a = args[i - 1].calc();
                         let b = args[i + 1].calc();
                         if (Array.isArray(a)) {
-                           // console.log(a);
-                            //console.log(getCurrentCellIndex() - 1);
-                           // console.log(a[getCurrentCellIndex() - 1]);
-                            a = a[getCurrentCellIndex() - 1][0];
+                            console.log(a);
+                            if(getCurrentCellIndex()<a.length - 1) {
+                                a = a[getCurrentCellIndex() - 1][0];
+                            } else {
+                                a = a[0][0];
+                                console.log(formula.name);
+                                console.log(args);
+                                console.log("CellIndex: "+getCurrentCellIndex());
+                            }
                         }
                         if (Array.isArray(b)) {
-
-                            console.log(a);
                             console.log(b);
                             if(getCurrentCellIndex()<b.length - 1) {
                                 b = b[getCurrentCellIndex() - 1][0];
