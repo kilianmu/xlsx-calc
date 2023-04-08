@@ -26,7 +26,11 @@ module.exports = function Exp(formula) {
                     && self.args[0] instanceof Range) {
                 throw Error('#VALUE!');
             }
+            if(formula.cell.f.includes("+SUMIFS(")) { //  && formula.cell.f.includes("*12)")
+                console.log('calc_start: ' + formula.cell.f);
+            }
             formula.cell.v = self.calc();
+            console.log('calc_end: ' + formula.cell.f);
             if (typeof(formula.cell.v) === 'string') {
                 formula.cell.t = 's';
             }
@@ -220,7 +224,7 @@ module.exports = function Exp(formula) {
                 self.args.push(v);
             }
             last_arg = v;
-            //console.log(self.id, '-->', v);
+            console.log(self.id, '-->', v);
         }
     };
 };
