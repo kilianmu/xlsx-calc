@@ -163,7 +163,7 @@ module.exports = function Exp(formula) {
             if (a instanceof Date && typeof b === 'number') {
                 b = b * MS_PER_DAY;
             }
-            console.logs(args);
+            console.log(args);
             console.log(a);
             console.log(b);
             return (+a) + (+b);
