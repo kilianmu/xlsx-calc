@@ -97,7 +97,6 @@ module.exports = function Exp(formula) {
                         }
                         if (Array.isArray(b)) {
                             console.log(args);
-                            console.log(op);
                             console.log(fn);
                             console.log(a);
                             console.log(b);
@@ -111,7 +110,7 @@ module.exports = function Exp(formula) {
                     }
                 }
                 catch (e) {
-                    // console.log('[Exp.js] - ' + formula.name + ': evaluating ' + formula.cell.f + '\n' + e.message);
+                     console.log('[Exp.js] - ' + formula.name + ': evaluating ' + formula.cell.f + '\n' + e.message);
                     throw e;
                 }
             }
