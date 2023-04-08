@@ -263,7 +263,11 @@ function sumproduct() {
     },
     consistentSizeRanges = function (matrixArray) {
         var getRowCount = function(matrix) {
-                return matrix.length;
+                if (Array.isArray(matrix)) {
+                    return matrix.length;
+                } else {
+                    return 1;
+                }
             },
             getColCount = function(matrix) {
                 if (Array.isArray(matrix)) {
@@ -293,7 +297,7 @@ function sumproduct() {
         throw Error('#VALUE!');
     }
     console.log("sumproduct arguments.length: "+arguments.length);
-    console.log(arguments);
+
     // throw error if any of the cells passed in arguments is in error
     for (var i = 0; i < arguments.length; i++) {
         console.log(arguments);
@@ -324,7 +328,7 @@ function sumproduct() {
             }
         }
     }
-
+    console.log(arguments);
     var arrays = arguments.length + 1;
     var result = 0;
     var product;
@@ -352,6 +356,7 @@ function sumproduct() {
             }
         }
     }
+    console.log("Result: "+result);
     return result;
 }
 
