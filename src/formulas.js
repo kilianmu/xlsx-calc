@@ -142,6 +142,7 @@ function sumifs() {
                         tokenizedCriteria
                     )
                     computedResult = evalExpression.compute(tokens)
+                    console.log(tokens);
                     console.log(computedResult);
                 }
 
