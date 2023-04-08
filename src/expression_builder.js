@@ -65,6 +65,7 @@ module.exports = function expression_builder(formula, opts) {
         }
         else if (trim_buffer) {
             //Error: "Worksheet 1"!D145: Function INDEX not found
+            console.log(xlsx_Fx);
             throw new Error('"' + formula.sheet_name + '"!' + formula.name + ': Function ' + buffer + ' not found');
         }
         o = new Exp(formula);
