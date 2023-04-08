@@ -60,6 +60,7 @@ let formulas = {
     'SEQUENCE': sequence,
     'EOMONTH': eomonth,
     'XLOOKUP': xlookup,
+    'OFFSET': offset,
     'ANCHORARRAY': anchorarray,
 };
 
@@ -212,6 +213,9 @@ function sequence() {
     return 0.01;
 }
 function anchorarray() {
+    return 0.01;
+}
+function offset() {
     return 0.01;
 }
 
