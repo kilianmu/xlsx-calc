@@ -24,7 +24,7 @@ module.exports = function Exp(formula) {
                 throw Error('#VALUE!');
             }
             if(formula.cell.f.includes("+SUMPRODUCT(")) { //  && formula.cell.f.includes("*12)")
-                //console.log('calc_start: '+ formula.name + " | " + formula.cell.f);
+                console.log('calc_start: '+ formula.name + " | " + formula.cell.f);
             }
             formula.cell.v = self.calc();
             if(formula.cell.f.includes("+SUMPRODUCT(")) { //  && formula.cell.f.includes("*12)")
