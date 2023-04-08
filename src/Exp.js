@@ -78,7 +78,7 @@ module.exports = function Exp(formula) {
     function exec(op, args, fn) {
         for (var i = 0; i < args.length; i++) {
             if (args[i] === op) {
-                try {
+              //  try {
                     if (i===0 && op==='+') {
                         checkVariable(args[i + 1]);
                         let r = args[i + 1].calc();
@@ -108,11 +108,11 @@ module.exports = function Exp(formula) {
                         args.splice(i - 1, 3, new RawValue(r));
                         i--;
                     }
-                }
+                /*}
                 catch (e) {
                      console.log('[Exp.js] - ' + formula.name + ': evaluating ' + formula.cell.f + '\n' + e.message);
                     throw e;
-                }
+                }*/
             }
         }
     }
