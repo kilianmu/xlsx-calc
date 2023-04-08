@@ -266,16 +266,16 @@ function sumproduct() {
                 if (Array.isArray(matrix)) {
                     return matrix.length;
                 } else {
-                    return 1;
+                    return 0;
                 }
             },
             getColCount = function(matrix) {
                 if (Array.isArray(matrix)) {
                     return matrix[0].length;
                 } else {
-                    console.log(matrixArray);
+                    //console.log(matrixArray);
                     //console.log('matrix is not an array');
-                    return 1;
+                    return 0;
                 }
             },
             rowCount = getRowCount(matrixArray[0]),
@@ -284,6 +284,7 @@ function sumproduct() {
         for (var i = 1; i < matrixArray.length; i++) {
             if (getRowCount(matrixArray[i]) !== rowCount
                 || getColCount(matrixArray[i]) !== colCount) {
+                console.log("rowCount ("+rowCount+") or colcount ("+colCount+") error");
                 return false;
             }
         }
