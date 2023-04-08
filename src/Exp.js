@@ -97,13 +97,17 @@ module.exports = function Exp(formula) {
                             a = a[getCurrentCellIndex() - 1][0];
                         }
                         if (Array.isArray(b)) {
-                            console.log(formula.name);
-                            console.log(args);
-                            console.log(fn);
+
                             console.log(a);
                             console.log(b);
-                            console.log(getCurrentCellIndex());
-                            b = b[getCurrentCellIndex() - 1][0];
+                            if(getCurrentCellIndex()<b.length - 1) {
+                                b = b[getCurrentCellIndex() - 1][0];
+                            } else {
+                                b = b[0][0];
+                                console.log(formula.name);
+                                console.log(args);
+                                console.log("CellIndex: "+getCurrentCellIndex());
+                            }
                         }
 
                         let r = fn(a, b);
