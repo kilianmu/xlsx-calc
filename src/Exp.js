@@ -224,7 +224,7 @@ module.exports = function Exp(formula) {
                 self.args.push(v);
             }
             last_arg = v;
-            console.log(self.id, '-->', v);
+            //console.log(self.id, '-->', v);
         }
     };
 };
