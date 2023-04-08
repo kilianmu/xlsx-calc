@@ -97,6 +97,7 @@ module.exports = function Exp(formula) {
                             a = a[getCurrentCellIndex() - 1][0];
                         }
                         if (Array.isArray(b)) {
+                            console.log(formula.name);
                             console.log(args);
                             console.log(fn);
                             console.log(a);
