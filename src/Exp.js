@@ -67,7 +67,7 @@ module.exports = function Exp(formula) {
     
     function checkVariable(obj) {
         if (typeof obj.calc !== 'function') {
-            throw new Error('Undefined ' + obj);
+            throw new Error('Undefined XXX ' + obj);
         }
     }
 
@@ -113,6 +113,7 @@ module.exports = function Exp(formula) {
     }
 
     function exec_minus(args) {
+        //console.log(args);
         for (var i = args.length; i--;) {
             if (args[i] === '-') {
                 checkVariable(args[i + 1]);
@@ -144,7 +145,7 @@ module.exports = function Exp(formula) {
     self.calc = function() {
         let args = self.args.concat();
         exec_minus(args);
-        console.log(args);
+
         exec('^', args, function(a, b) {
             return Math.pow(+a, +b);
         });
@@ -155,10 +156,10 @@ module.exports = function Exp(formula) {
             return (+a) / (+b);
         });
         exec('*', args, function(a, b) {
-            console.log(args[2]);
+            /*console.log(args[2]);
             console.log(args[2].str_expression);
             console.log(a);
-            console.log(b);
+            console.log(b);*/
             return (+a) * (+b);
         });
         exec('+', args, function(a, b) {
