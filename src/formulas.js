@@ -136,12 +136,13 @@ function sumifs() {
                 if (isWildcard) {
                     computedResult = true
                 } else {
-
+                    console.log("computedResult:");
                     const tokenizedCriteria = evalExpression.parse(criteria + '')
                     const tokens = [evalExpression.createToken(valueToTest, evalExpression.TOKEN_TYPE_LITERAL)].concat(
                         tokenizedCriteria
                     )
                     computedResult = evalExpression.compute(tokens)
+                    console.log(computedResult);
                 }
 
                 // Criterias are calculated as AND so any `false` breakes the loop as unmeet condition
@@ -157,6 +158,7 @@ function sumifs() {
                 result += range[i]
             }
         }
+        console.log(result);
         return result
     } catch (error) {
         console.error(error)
