@@ -125,6 +125,10 @@ function sumifs() {
                 const isWildcard = criteria === void 0 || criteria === '*'
 
                 // If one is date, convert both to dates
+                function isUnixTimestamp(timestamp) {
+                    let date = new Date(timestamp);
+                    return !isNaN(date.getTime());
+                }
                 const dateRegex = /^\d{1,2}\/\d{1,2}\/\d{4}$/
                 if(dateRegex.test(valueToTest) || dateRegex.test(criteria)){
                     console.log("date is there");
@@ -138,7 +142,8 @@ function sumifs() {
                     }
                 } else {
                     if(range.length==3 && args.length==2) {
-                        console.log("no dates: "+valueToTest+""+criteria);
+                        console.log("no dates: "+valueToTest+" | "+criteria);
+                        console.log("unix-dates: "+isUnixTimestamp(valueToTest)+" | "+isUnixTimestamp(criteria));
                     }
                 }
 
