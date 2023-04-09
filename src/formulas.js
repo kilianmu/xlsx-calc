@@ -333,9 +333,19 @@ function edate(start_date, months) {
     if (isNaN(months)) {
         return error.value
     }
+    let date = new Date(start_date);
+
+    if (isNaN(date.getTime())) {
+        console.log("Value is not a valid date");
+    } else {
+        console.log("Value is a valid date");
+    }
 
     months = parseInt(months, 10)
     start_date.setMonth(start_date.getMonth() + months)
+    start_date = formatter.format(start_date);
+    console.log("edate 3: "+start_date+" - "+months);
+
 
     return start_date
 }
