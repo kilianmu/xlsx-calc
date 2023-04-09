@@ -127,25 +127,30 @@ function sumifs() {
                 // If one is date, convert both to dates
                 const dateRegex = /^\d{1,2}\/\d{1,2}\/\d{4}$/
                 function isUnixTimestamp(timestamp) {
-                    let date = new Date(timestamp);
-                    console.log(date.getTime());
-                    console.log(formatter.format(date.getTime()));
-                    return false
-                   // return dateRegex.test(date);
+                    let date = formatter.format(new Date(timestamp).getTime())
+                   return dateRegex.test(date)
                 }
                 if(dateRegex.test(valueToTest) || dateRegex.test(criteria)){
                     console.log("date is there");
                     if(!dateRegex.test(valueToTest)){
                         console.log("not valueToTest")
-                        valueToTest = formatter.format(utils.serialNumberToDate(valueToTest));
+                        if(isUnixTimestamp(valueToTest)){
+                            valueToTest = formatter.format(new Date(valueToTest).getTime())
+                        } else {
+                            valueToTest = formatter.format(utils.serialNumberToDate(valueToTest))
+                        }
                     }
                     if(!dateRegex.test(criteria)){
                         console.log("not criteria")
-                        criteria = formatter.format(utils.serialNumberToDate(criteria));
+                        if(isUnixTimestamp(criteria)){
+                            criteria = formatter.format(new Date(criteria).getTime())
+                        } else {
+                            criteria = formatter.format(utils.serialNumberToDate(criteria))
+                        }
                     }
                 } else {
                     if(range.length==3 && args.length==2) {
-                        console.log("no dates: "+valueToTest+" | "+criteria);
+                        console.log("result: "+valueToTest+" | "+criteria);
                         console.log("unix-dates: "+isUnixTimestamp(valueToTest)+" | "+isUnixTimestamp(criteria));
                     }
                 }
