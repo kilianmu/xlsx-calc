@@ -169,13 +169,13 @@ module.exports = function Exp(formula) {
             return (+a) / (+b);
         });
         exec('*', args, function(a, b) {
-            if(typeof args[2].formula == "object"){
+            /*if(typeof args[2].formula == "object"){
                 console.log(args[2].formula.name);
-            }
+            }*/
 
            // console.log(args[2].str_expression);
-            console.log(a);
-            console.log(b);
+            //console.log(a);
+            //console.log(b);
             return (+a) * (+b);
         });
         exec('+', args, function(a, b) {
