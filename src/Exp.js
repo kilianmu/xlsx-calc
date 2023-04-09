@@ -23,12 +23,12 @@ module.exports = function Exp(formula) {
                     && self.args[0] instanceof Range) {
                 throw Error('#VALUE!');
             }
-            if(formula.cell.f.includes("IF(")) { //  && formula.cell.f.includes("*12)")
-             //   console.log('calc_start: '+ formula.name + " | " + formula.cell.f);
+            if(formula.cell.f.includes("AVERAGE(")) { //  && formula.cell.f.includes("*12)")
+                 console.log('calc_start: '+ formula.name + " | " + formula.cell.f);
             }
             formula.cell.v = self.calc();
-            if(formula.cell.f.includes("IF(")) { //  && formula.cell.f.includes("*12)")
-               // console.log('calc_end: '+ formula.name + " | " + formula.cell.f);
+            if(formula.cell.f.includes("AVERAGE(")) { //  && formula.cell.f.includes("*12)")
+               console.log('calc_end: '+ formula.name + " | " + formula.cell.f);
             }
             if (typeof(formula.cell.v) === 'string') {
                 formula.cell.t = 's';

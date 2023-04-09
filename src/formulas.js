@@ -719,6 +719,7 @@ function EXP(n) {
 }
 
 function avg() {
+    console.log(arguments);
     return sum.apply(this, arguments) / counta.apply(this, arguments);
 }
 
