@@ -102,9 +102,9 @@ function sumifs() {
         if (range instanceof Error) {
             return range
         }
-        console.log(args)
-        console.log(range)
-        console.log(range.length)
+        //console.log(args)
+        //console.log(range)
+        //console.log(range.length)
 
         const criterias = args
         const criteriaLength = criterias.length / 2
@@ -166,7 +166,7 @@ function sumifs() {
                 result += range[i]
             }
         }
-        console.log(result);
+        //console.log(result);
         return result
     } catch (error) {
         console.error(error)
