@@ -337,17 +337,19 @@ function edate(start_date, months) {
 
     if (isNaN(date.getTime())) {
         console.log("Value is not a valid date");
+        return 0;
     } else {
-        console.log("Value is a valid date");
+        months = parseInt(months, 10)
+        start_date.setMonth(start_date.getMonth() + months)
+        console.log("edate 3: "+start_date+" - "+months);
+        start_date = formatter.format(start_date);
+        console.log("edate 4: "+start_date+" - "+months);
+
+
+        return start_date
     }
 
-    months = parseInt(months, 10)
-    start_date.setMonth(start_date.getMonth() + months)
-    start_date = formatter.format(start_date);
-    console.log("edate 3: "+start_date+" - "+months);
 
-
-    return start_date
 }
 
 function isnumber(x) {
