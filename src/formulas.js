@@ -842,9 +842,9 @@ function concatenate() {
 }
 
 function sum() {
-    //if(arguments[0].length == 241){
-       console.log(arguments[0]);
-    //}
+    if(arguments[0][0].length == 241) {
+        console.log(arguments[0]);
+    }
 
     var r = 0;
     for (var i = arguments.length; i--;) {
