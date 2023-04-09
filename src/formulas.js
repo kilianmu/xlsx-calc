@@ -49,7 +49,6 @@ let formulas = {
     'RIGHT': right,
     'LEFT': left,
     'IFS': ifs,
-    'IF': ifFunc,
     'ROUND': round,
     'CORREL': correl, // missing test
     'SUMIF': sumif, // missing test,
@@ -1099,29 +1098,6 @@ function ifs(/*_cond1, _val1, _cond2, _val2, _cond3, _val3, ... */) {
         }
     }
     throw Error('#N/A');
-}
-
-function ifFunc(logical_test, value_if_true, value_if_false) {
-    if (logical_test instanceof Error) {
-        return logical_test
-    }
-    console.log(logical_test);
-    console.log(value_if_true);
-    console.log(value_if_false);
-
-    value_if_true = arguments.length >= 2 ? value_if_true : true
-
-    if (value_if_true === undefined || value_if_true === null) {
-        value_if_true = 0
-    }
-
-    value_if_false = arguments.length === 3 ? value_if_false : false
-
-    if (value_if_false === undefined || value_if_false === null) {
-        value_if_false = 0
-    }
-
-    return logical_test ? value_if_true : value_if_false
 }
 
 function escapeRegExp(str) {
