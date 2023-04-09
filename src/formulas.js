@@ -66,6 +66,10 @@ let formulas = {
 
 /* formulas */
 
+/* Vars available in formulas:
+* arguments = Arguments of function
+*  */
+
 function choose(option) {
     return arguments[option];
 }
@@ -93,15 +97,13 @@ function sumif(){
 function sumifs() {
     try {
         const args = utils.argsToArray(arguments)
+        console.log(args)
         const range = utils.parseNumberArray(utils.flatten(args.shift()))
-
         if (range instanceof Error) {
             return range
         }
-
-        console.log(args);
-        console.log(range);
-        console.log(range.length);
+        console.log(range)
+        console.log(range.length)
 
         const criterias = args
         const criteriaLength = criterias.length / 2
@@ -211,18 +213,23 @@ function today() {
     return today;
 }
 function xirr() {
+    console.log("xirr is used");
     return 0.01;
 }
 function xlookup() {
+    console.log("xlookup is used");
     return 0.01;
 }
 function sequence() {
+    console.log("sequence is used");
     return 0.01;
 }
 function anchorarray() {
+    console.log("anchorarray is used");
     return 0.01;
 }
 function offset() {
+    console.log("offset is used");
     return 0.01;
 }
 
