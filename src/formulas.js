@@ -336,7 +336,7 @@ function edate(start_date, months) {
     let date = new Date(start_date);
 
     if (isNaN(date.getTime())) {
-        console.log("Value is not a valid date");
+        console.log("edate is not a valid date: "+start_date+" - "+months);
         return 0;
     } else {
         months = parseInt(months, 10)
