@@ -135,9 +135,7 @@ function sumifs() {
                     }
                 }
                 if(dateRegex.test(valueToTest) || dateRegex.test(criteria) || isUnixTimestamp(criteria) || isUnixTimestamp(criteria)){
-                    console.log("date is there");
                     if(!dateRegex.test(valueToTest)){
-                        console.log("not valueToTest")
                         if(isUnixTimestamp(valueToTest)){
                             valueToTest = formatter.format(new Date(valueToTest).getTime())
                         } else {
@@ -145,7 +143,6 @@ function sumifs() {
                         }
                     }
                     if(!dateRegex.test(criteria)){
-                        console.log("not criteria")
                         if(isUnixTimestamp(criteria)){
                             criteria = formatter.format(new Date(criteria).getTime())
                         } else {
@@ -155,7 +152,6 @@ function sumifs() {
                 } else {
                     if(range.length==3 && args.length==2) {
                         console.log("result: "+valueToTest+" | "+criteria);
-                        console.log("unix-dates: "+isUnixTimestamp(valueToTest)+" | "+isUnixTimestamp(criteria));
                     }
                 }
 
