@@ -60,7 +60,7 @@ let formulas = {
     'SEQUENCE': sequence,
     'EOMONTH': eomonth,
     'XLOOKUP': xlookup,
-    'OFFSET': offset,
+   // 'OFFSET': offset,
     'ANCHORARRAY': anchorarray,
 };
 
@@ -229,10 +229,10 @@ function anchorarray() {
     console.log("anchorarray is used");
     return 0.01;
 }
-function offset() {
+/*function offset() {
     console.log("offset is used");
     return 0.01;
-}
+}*/
 
 function eomonth() {
     let start_date = arguments["0"];

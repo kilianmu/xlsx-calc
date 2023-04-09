@@ -6,6 +6,7 @@ const getSanitizedSheetName = require('./getSanitizedSheetName.js');
 
 module.exports = function Range(str_expression, formula) {
     this.calc = function() {
+        console.log(str_expression);
         var range_expression, sheet_name, sheet;
         if (str_expression.indexOf('!') != -1) {
             var aux = str_expression.split('!');
@@ -65,6 +66,7 @@ module.exports = function Range(str_expression, formula) {
                 }
             }
         }
+        console.log(matrix);
         return matrix;
     };
 };
