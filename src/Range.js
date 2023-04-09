@@ -16,7 +16,6 @@ module.exports = function Range(str_expression, formula) {
             sheet_name = formula.sheet_name;
             range_expression = str_expression;
         }
-        console.log(range_expression);
         sheet = formula.wb.Sheets[sheet_name];
         var arr = range_expression.split(':');
         var min_row = parseInt(arr[0].replace(/^[A-Z]+/, ''), 10) || 0;
