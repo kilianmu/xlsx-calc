@@ -719,13 +719,14 @@ function EXP(n) {
 }
 
 function avg() {
-    console.log(arguments);
+    let allValues = arguments[0]
+    console.log(allValues);
     let sum = 0;
     let count = 0;
 
-    for (let i = 0; i < arguments.length; i++) {
-        if (arguments[i] !== null && arguments[i] !== "") {
-            sum += Number(arguments[i]);
+    for (let i = 0; i < allValues.length; i++) {
+        if (allValues[i] !== 0 && allValues[i] !== "") {
+            sum += Number(allValues[i]);
             count++;
         }
     }
