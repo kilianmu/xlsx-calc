@@ -169,8 +169,8 @@ module.exports = function Exp(formula) {
             return (+a) / (+b);
         });
         exec('*', args, function(a, b) {
-            console.log(args[2]);
-            console.log(args[2].str_expression);
+            console.log(args[2].formula.cell.f);
+           // console.log(args[2].str_expression);
             console.log(a);
             console.log(b);
             return (+a) * (+b);
