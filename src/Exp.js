@@ -191,8 +191,8 @@ module.exports = function Exp(formula) {
             return a < b;
         });
         exec('>', args, function(a, b) {
-            console.log(args);
-            console.log("a: " + a + " b: " + b);
+           // console.log(args);
+          //  console.log("a: " + a + " b: " + b);
             return a > b;
         });
         exec('>=', args, function(a, b) {
