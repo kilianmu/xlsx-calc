@@ -102,10 +102,10 @@ function sumifs() {
         if (range instanceof Error) {
             return range
         }
-        if(range.length==3 && args.length==2) {
+        /*if(range.length==3 && args.length==2) {
             console.log(args)
             console.log(range)
-        }
+        }*/
 
         const criterias = args
         const criteriaLength = criterias.length / 2
@@ -139,9 +139,10 @@ function sumifs() {
                 let criteriaIsUnixTimestamp = isUnixTimestamp(criteria);
                 let criteriaIsDate = dateRegex.test(criteria);
                 let dateCase;
-                //if(range.length==3 && args.length==2) {
-                console.log("valuetoTest: " + valueToTest + " (" + valueIsUnixTimestamp + " | " + valueIsDate + ") /// criteria: " + criteria + " (" + criteriaIsUnixTimestamp + " | " + criteriaIsDate + ")");
-                //}
+
+                /*if(range.length==3 && args.length==2) {
+                    console.log("valuetoTest: " + valueToTest + " (" + valueIsUnixTimestamp + " | " + valueIsDate + ") /// criteria: " + criteria + " (" + criteriaIsUnixTimestamp + " | " + criteriaIsDate + ")");
+                }*/
 
                 if(valueIsDate|| valueIsUnixTimestamp || criteriaIsDate || criteriaIsUnixTimestamp){
                     if (valueIsUnixTimestamp) {
@@ -179,10 +180,10 @@ function sumifs() {
                             dateCase = "Case 9: valueToTest no Date (serial number), criteria is no Date (serial number) => do nothing";
                         }
                     }
-                    //if(range.length==3 && args.length==2) {
+                    /*if(range.length==3 && args.length==2) {
                         console.log(dateCase);
                         console.log("valuetoTest: " + valueToTest + " /// criteria: " + criteria);
-                    //}
+                    }*/
 
 
                     /*if(!dateRegex.test(valueToTest) && isUnixTimestamp(criteria)){
