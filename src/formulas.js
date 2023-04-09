@@ -149,7 +149,6 @@ function sumifs() {
                             criteria = formatter.format(utils.serialNumberToDate(criteria))
                         }
                     }
-                } else {
                     if(range.length==3 && args.length==2) {
                         console.log("result: "+valueToTest+" | "+criteria);
                     }
