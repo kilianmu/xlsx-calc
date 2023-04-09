@@ -842,9 +842,9 @@ function concatenate() {
 }
 
 function sum() {
-    if(arguments.length == 2 && arguments[0].length == 5){
-    //    console.log(arguments);
-    }
+    //if(arguments.length == 2 && arguments[0].length == 5){
+       console.log(arguments);
+    //}
 
     var r = 0;
     for (var i = arguments.length; i--;) {
