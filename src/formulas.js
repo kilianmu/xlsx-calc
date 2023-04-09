@@ -843,7 +843,7 @@ function concatenate() {
 
 function sum() {
     //if(arguments[0].length == 241){
-       console.log(arguments);
+       console.log(arguments[0]);
     //}
 
     var r = 0;
