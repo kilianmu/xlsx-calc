@@ -102,8 +102,10 @@ function sumifs() {
         if (range instanceof Error) {
             return range
         }
-        console.log(args)
-        console.log(range)
+        if(range.length==3) {
+            console.log(args)
+            console.log(range)
+        }
 
         const criterias = args
         const criteriaLength = criterias.length / 2
@@ -125,10 +127,13 @@ function sumifs() {
                 // If one is date, convert both to dates
                 const dateRegex = /^\d{1,2}\/\d{1,2}\/\d{4}$/
                 if(dateRegex.test(valueToTest) || dateRegex.test(criteria)){
+                    console.log("date is there");
                     if(!dateRegex.test(valueToTest)){
+                        console.log("not valueToTest")
                         valueToTest = formatter.format(utils.serialNumberToDate(valueToTest));
                     }
                     if(!dateRegex.test(criteria)){
+                        console.log("not criteria")
                         criteria = formatter.format(utils.serialNumberToDate(criteria));
                     }
                 }
