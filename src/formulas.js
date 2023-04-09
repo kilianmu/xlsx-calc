@@ -127,6 +127,7 @@ function sumifs() {
                 // If one is date, convert both to dates
                 function isUnixTimestamp(timestamp) {
                     let date = new Date(timestamp);
+                    console.log(date.getTime());
                     return !isNaN(date.getTime());
                 }
                 const dateRegex = /^\d{1,2}\/\d{1,2}\/\d{4}$/
