@@ -143,6 +143,7 @@ function sumifs() {
                 if(valueIsDate|| valueIsUnixTimestamp || criteriaIsDate || criteriaIsUnixTimestamp){
                     try {
                         if (valueIsUnixTimestamp) {
+                            console.log(typeof valueToTest);
                             if (criteriaIsUnixTimestamp) {
                                 dateCase = "Case 1: valueToTest is Unix timestamp, criteria is Unix timestamp => convert both";
                                 valueToTest = formatter.format(new Date(valueToTest).getTime())
