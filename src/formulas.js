@@ -102,8 +102,8 @@ function sumifs() {
         if (range instanceof Error) {
             return range
         }
-        //console.log(args)
-        //console.log(range)
+        console.log(args)
+        console.log(range)
 
         const criterias = args
         const criteriaLength = criterias.length / 2
@@ -843,7 +843,7 @@ function concatenate() {
 
 function sum() {
     if(arguments[0][0].length == 241) {
-        console.log(arguments[0]);
+        //console.log(arguments[0]);
     }
 
     var r = 0;
