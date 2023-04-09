@@ -6,7 +6,6 @@ const getSanitizedSheetName = require('./getSanitizedSheetName.js');
 
 module.exports = function Range(str_expression, formula) {
     this.calc = function() {
-        console.log(str_expression);
         var range_expression, sheet_name, sheet;
         if (str_expression.indexOf('!') != -1) {
             var aux = str_expression.split('!');
@@ -17,6 +16,7 @@ module.exports = function Range(str_expression, formula) {
             sheet_name = formula.sheet_name;
             range_expression = str_expression;
         }
+        console.log(range_expression);
         sheet = formula.wb.Sheets[sheet_name];
         var arr = range_expression.split(':');
         var min_row = parseInt(arr[0].replace(/^[A-Z]+/, ''), 10) || 0;
@@ -66,7 +66,7 @@ module.exports = function Range(str_expression, formula) {
                 }
             }
         }
-        console.log(matrix);
+       // console.log(matrix);
         return matrix;
     };
 };
