@@ -169,10 +169,10 @@ module.exports = function Exp(formula) {
             return (+a) / (+b);
         });
         exec('*', args, function(a, b) {
-            /*console.log(args[2]);
+            console.log(args[2]);
             console.log(args[2].str_expression);
             console.log(a);
-            console.log(b);*/
+            console.log(b);
             return (+a) * (+b);
         });
         exec('+', args, function(a, b) {

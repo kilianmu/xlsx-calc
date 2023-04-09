@@ -276,6 +276,7 @@ function sumproduct() {
         return 0;
     },
     consistentSizeRanges = function (matrixArray) {
+        console.log(matrixArray);
         var getRowCount = function(matrix) {
                 if (Array.isArray(matrix)) {
                     return matrix.length;
