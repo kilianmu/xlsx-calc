@@ -128,9 +128,13 @@ function sumifs() {
                 const dateRegex = /^\d{1,2}\/\d{1,2}\/\d{4}$/
                 function isUnixTimestamp(timestamp) {
                     let date = formatter.format(new Date(timestamp).getTime())
-                   return dateRegex.test(date)
+                    if(date!= "1/1/1970"){
+                        return dateRegex.test(date)
+                    } else {
+                        return false
+                    }
                 }
-                if(dateRegex.test(valueToTest) || dateRegex.test(criteria)){
+                if(dateRegex.test(valueToTest) || dateRegex.test(criteria) || isUnixTimestamp(criteria) || isUnixTimestamp(criteria)){
                     console.log("date is there");
                     if(!dateRegex.test(valueToTest)){
                         console.log("not valueToTest")
