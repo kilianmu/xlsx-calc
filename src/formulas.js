@@ -97,11 +97,12 @@ function sumif(){
 function sumifs() {
     try {
         const args = utils.argsToArray(arguments)
-        console.log(args)
+
         const range = utils.parseNumberArray(utils.flatten(args.shift()))
         if (range instanceof Error) {
             return range
         }
+        console.log(args)
         console.log(range)
         console.log(range.length)
 
@@ -144,11 +145,11 @@ function sumifs() {
                     )
                     computedResult = evalExpression.compute(tokens);
 
-                    if(range.length == 241){
+                    /*if(range.length == 241){
                         console.log("computedResult: "+i);
                         console.log(tokens);
                         console.log(computedResult);
-                    }
+                    }*/
 
                 }
 
