@@ -42,9 +42,9 @@ function iferror(cell_ref, onerrorvalue) {
 }
 
 function _if(condition, _then, _else) {
-    console.log(condition);
+   /* console.log(condition);
     console.log(_then);
-    console.log(_else);
+    console.log(_else);*/
     if (condition.calc()) {
         // console.log(condition.formula.name)
         // if (condition.formula.name === 'P40') {
