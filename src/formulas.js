@@ -344,7 +344,8 @@ function sumproduct() {
     var k;
     var _i;
     var _ij;
-    //console.log(arguments);
+    console.log("sumprod-arguments");
+    console.log(arguments);
 
     if (!Array.isArray(arguments[0])) {
         result = arguments[0];
