@@ -102,9 +102,9 @@ function sumifs() {
         if (range instanceof Error) {
             return range
         }
-        //console.log(args)
-        //console.log(range)
-        //console.log(range.length)
+        console.log(args)
+        console.log(range)
+        console.log(range.length)
 
         const criterias = args
         const criteriaLength = criterias.length / 2
@@ -344,8 +344,8 @@ function sumproduct() {
     var k;
     var _i;
     var _ij;
-    console.log("sumprod-arguments");
-    console.log(arguments);
+    //console.log("sumprod-arguments");
+    //console.log(arguments);
 
     if (!Array.isArray(arguments[0])) {
         result = arguments[0];
