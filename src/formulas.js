@@ -135,15 +135,65 @@ function sumifs() {
                     }
                 }
                 if(dateRegex.test(valueToTest) || dateRegex.test(criteria) || isUnixTimestamp(criteria) || isUnixTimestamp(criteria)){
-                    if(!dateRegex.test(valueToTest)){
+
+                    let valueIsUnixTimestamp = isUnixTimestamp(valueToTest);
+                    let valueIsDate = dateRegex.test(valueToTest);
+                    let criteriaIsUnixTimestamp = isUnixTimestamp(criteria);
+                    let criteriaIsDate = dateRegex.test(criteria);
+
+                    console.log("valuetoTest: "+valueToTest+"("+valueIsUnixTimestamp+" | "+valueIsDate+") /// criteria: "+criteria+"("+criteriaIsUnixTimestamp+" | "+criteriaIsDate+")");
+                    if (valueIsUnixTimestamp) {
+                        if (criteriaIsUnixTimestamp) {
+                            console.log("Case 1: valueToTest is Unix timestamp, criteria is Unix timestamp => convert both");
+                            valueToTest = formatter.format(new Date(valueToTest).getTime())
+                            criteria = formatter.format(new Date(criteria).getTime())
+                        } else if (criteriaIsDate) {
+                            console.log("Case 2: valueToTest is Unix timestamp, criteria is Date => convert valueToTest");
+                            valueToTest = formatter.format(new Date(valueToTest).getTime())
+                        } else {
+                            console.log("Case 3: valueToTest is Unix timestamp, criteria is no Date (serial number) => convert both in different styles");
+                            valueToTest = formatter.format(new Date(valueToTest).getTime())
+                            criteria = formatter.format(utils.serialNumberToDate(criteria))
+                        }
+                    } else if(valueIsDate){
+                        if (criteriaIsUnixTimestamp) {
+                            console.log("Case 4: valueToTest is Date, criteria is Unix timestamp => convert criteria");
+                            criteria = formatter.format(new Date(criteria).getTime())
+                        } else if (criteriaIsDate) {
+                            console.log("Case 5: valueToTest is Date, criteria is Date => do nothing");
+                        } else {
+                            console.log("Case 6: valueToTest is Date, criteria is no Date (serial number) => convert criteria");
+                            criteria = formatter.format(utils.serialNumberToDate(criteria))
+                        }
+                    } else {
+                        if (criteriaIsUnixTimestamp) {
+                            console.log("Case 7: valueToTest no Date (serial number), criteria is Unix timestamp => convert both in different styles");
+                            valueToTest = formatter.format(utils.serialNumberToDate(valueToTest))
+                            criteria = formatter.format(new Date(criteria).getTime())
+                        } else if (criteriaIsDate) {
+                            console.log("Case 8: valueToTest no Date (serial number), criteria is Date => convert valueToTest");
+                            valueToTest = formatter.format(utils.serialNumberToDate(valueToTest))
+                        } else {
+                            console.log("Case 9: valueToTest no Date (serial number), criteria is no Date (serial number) => do nothing");
+                        }
+                    }
+
+
+                console.log("valuetoTest: "+valueToTest+" /// criteria: "+criteria);
+
+
+
+
+
+                    /*if(!dateRegex.test(valueToTest) && isUnixTimestamp(criteria)){
                         if(isUnixTimestamp(valueToTest)){
                             valueToTest = formatter.format(new Date(valueToTest).getTime())
                         } else {
                             valueToTest = formatter.format(utils.serialNumberToDate(valueToTest))
                         }
                     }
-                    if(!dateRegex.test(criteria)){
-                        if(isUnixTimestamp(criteria)){
+                    if(!dateRegex.test(criteria)){ // criteria ist kein Datum
+                        if(){
                             criteria = formatter.format(new Date(criteria).getTime())
                         } else {
                             criteria = formatter.format(utils.serialNumberToDate(criteria))
@@ -151,7 +201,7 @@ function sumifs() {
                     }
                     if(range.length==3 && args.length==2) {
                         console.log("result: "+valueToTest+" | "+criteria);
-                    }
+                    }*/
                 }
 
                 let computedResult = false
