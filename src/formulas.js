@@ -140,10 +140,6 @@ function sumifs() {
                 let criteriaIsDate = dateRegex.test(criteria);
                 let dateCase;
 
-                /*if(range.length==3 && args.length==2) {
-                    console.log("valuetoTest: " + valueToTest + " (" + valueIsUnixTimestamp + " | " + valueIsDate + ") /// criteria: " + criteria + " (" + criteriaIsUnixTimestamp + " | " + criteriaIsDate + ")");
-                }*/
-
                 if(valueIsDate|| valueIsUnixTimestamp || criteriaIsDate || criteriaIsUnixTimestamp){
                     try {
                         if (valueIsUnixTimestamp) {
@@ -182,7 +178,7 @@ function sumifs() {
                             }
                         }
                     } catch (error){
-                        console.log("CATCH ERROR | valuetoTest: " + valueToTest + " /// criteria: " + criteria);
+                        console.log("CATCH ERROR ### valuetoTest: " + valueToTest + " (" + valueIsUnixTimestamp + " | " + valueIsDate + ") /// criteria: " + criteria + " (" + criteriaIsUnixTimestamp + " | " + criteriaIsDate + ")");
                     }
                     /*if(range.length==3 && args.length==2) {
                         console.log(dateCase);
