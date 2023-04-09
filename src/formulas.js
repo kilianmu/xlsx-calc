@@ -59,6 +59,7 @@ let formulas = {
     'XIRR': xirr,
     'SEQUENCE': sequence,
     'EOMONTH': eomonth,
+    'EDATE': edate,
     'XLOOKUP': xlookup,
    // 'OFFSET': offset,
     'ANCHORARRAY': anchorarray,
@@ -140,8 +141,8 @@ function sumifs() {
                 let criteriaIsDate = dateRegex.test(criteria);
                 let dateCase;
 
-                if(valueIsDate|| valueIsUnixTimestamp || criteriaIsDate || criteriaIsUnixTimestamp){
-                    try {
+                if(valueIsDate || criteriaIsDate){
+                   /* try {
                         if (valueIsUnixTimestamp) {
                             console.log(typeof valueToTest);
                             if (criteriaIsUnixTimestamp) {
@@ -181,30 +182,18 @@ function sumifs() {
                     } catch (error){
                         console.log("CATCH ERROR ### valuetoTest: " + criterias[j * 2][i] + " (" + valueIsUnixTimestamp + " | " + typeof criterias[j * 2][i] + " | "+ formatter.format(new Date(criterias[j * 2][i]).getTime()) + " | " + valueIsDate + ") /// criteria: " + criteria + " (" + criteriaIsUnixTimestamp + " | " + criteriaIsDate + ")");
                         console.log(error);
-                    }
-                    /*if(range.length==3 && args.length==2) {
-                        console.log(dateCase);
-                        console.log("valuetoTest: " + valueToTest + " /// criteria: " + criteria);
                     }*/
 
 
-                    /*if(!dateRegex.test(valueToTest) && isUnixTimestamp(criteria)){
-                        if(isUnixTimestamp(valueToTest)){
-                            valueToTest = formatter.format(new Date(valueToTest).getTime())
-                        } else {
-                            valueToTest = formatter.format(utils.serialNumberToDate(valueToTest))
-                        }
+                    if(!dateRegex.test(valueToTest)){
+                        valueToTest = formatter.format(utils.serialNumberToDate(valueToTest))
                     }
                     if(!dateRegex.test(criteria)){ // criteria ist kein Datum
-                        if(){
-                            criteria = formatter.format(new Date(criteria).getTime())
-                        } else {
-                            criteria = formatter.format(utils.serialNumberToDate(criteria))
-                        }
+                        criteria = formatter.format(utils.serialNumberToDate(criteria))
                     }
-                    if(range.length==3 && args.length==2) {
+                   // if(range.length==3 && args.length==2) {
                         console.log("result: "+valueToTest+" | "+criteria);
-                    }*/
+                    //}
                 }
 
                 let computedResult = false
@@ -333,6 +322,24 @@ function eomonth() {
     }
     return return_date;
 }
+function edate(start_date, months) {
+    console.log("edate: "+start_date+" - "+months);
+    start_date = utils.parseDate(start_date)
+
+    if (start_date instanceof Error) {
+        return start_date
+    }
+
+    if (isNaN(months)) {
+        return error.value
+    }
+
+    months = parseInt(months, 10)
+    start_date.setMonth(start_date.getMonth() + months)
+
+    return start_date
+}
+
 function isnumber(x) {
     return !isNaN(x);
 }
