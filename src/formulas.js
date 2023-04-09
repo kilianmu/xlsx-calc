@@ -178,7 +178,7 @@ function sumifs() {
                             }
                         }
                     } catch (error){
-                        console.log("CATCH ERROR ### valuetoTest: " + valueToTest + " (" + valueIsUnixTimestamp + " | " + valueIsDate + ") /// criteria: " + criteria + " (" + criteriaIsUnixTimestamp + " | " + criteriaIsDate + ")");
+                        console.log("CATCH ERROR ### valuetoTest: " + criterias[j * 2][i] + " (" + valueIsUnixTimestamp + " | " + valueIsDate + ") /// criteria: " + criteria + " (" + criteriaIsUnixTimestamp + " | " + criteriaIsDate + ")");
                     }
                     /*if(range.length==3 && args.length==2) {
                         console.log(dateCase);
