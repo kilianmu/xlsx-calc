@@ -145,40 +145,44 @@ function sumifs() {
                 }*/
 
                 if(valueIsDate|| valueIsUnixTimestamp || criteriaIsDate || criteriaIsUnixTimestamp){
-                    if (valueIsUnixTimestamp) {
-                        if (criteriaIsUnixTimestamp) {
-                            dateCase = "Case 1: valueToTest is Unix timestamp, criteria is Unix timestamp => convert both";
-                            valueToTest = formatter.format(new Date(valueToTest).getTime())
-                            criteria = formatter.format(new Date(criteria).getTime())
-                        } else if (criteriaIsDate) {
-                            dateCase = "Case 2: valueToTest is Unix timestamp, criteria is Date => convert valueToTest";
-                            valueToTest = formatter.format(new Date(valueToTest).getTime())
+                    try {
+                        if (valueIsUnixTimestamp) {
+                            if (criteriaIsUnixTimestamp) {
+                                dateCase = "Case 1: valueToTest is Unix timestamp, criteria is Unix timestamp => convert both";
+                                valueToTest = formatter.format(new Date(valueToTest).getTime())
+                                criteria = formatter.format(new Date(criteria).getTime())
+                            } else if (criteriaIsDate) {
+                                dateCase = "Case 2: valueToTest is Unix timestamp, criteria is Date => convert valueToTest";
+                                valueToTest = formatter.format(new Date(valueToTest).getTime())
+                            } else {
+                                dateCase = "Case 3: valueToTest is Unix timestamp, criteria is no Date (serial number) => convert both in different styles";
+                                valueToTest = formatter.format(new Date(valueToTest).getTime())
+                                criteria = formatter.format(utils.serialNumberToDate(criteria))
+                            }
+                        } else if(valueIsDate){
+                            if (criteriaIsUnixTimestamp) {
+                                dateCase = "Case 4: valueToTest is Date, criteria is Unix timestamp => convert criteria";
+                                criteria = formatter.format(new Date(criteria).getTime())
+                            } else if (criteriaIsDate) {
+                                dateCase = "Case 5: valueToTest is Date, criteria is Date => do nothing";
+                            } else {
+                                dateCase = "Case 6: valueToTest is Date, criteria is no Date (serial number) => convert criteria";
+                                criteria = formatter.format(utils.serialNumberToDate(criteria))
+                            }
                         } else {
-                            dateCase = "Case 3: valueToTest is Unix timestamp, criteria is no Date (serial number) => convert both in different styles";
-                            valueToTest = formatter.format(new Date(valueToTest).getTime())
-                            criteria = formatter.format(utils.serialNumberToDate(criteria))
+                            if (criteriaIsUnixTimestamp) {
+                                dateCase = "Case 7: valueToTest no Date (serial number), criteria is Unix timestamp => convert both in different styles";
+                                valueToTest = formatter.format(utils.serialNumberToDate(valueToTest))
+                                criteria = formatter.format(new Date(criteria).getTime())
+                            } else if (criteriaIsDate) {
+                                dateCase = "Case 8: valueToTest no Date (serial number), criteria is Date => convert valueToTest";
+                                valueToTest = formatter.format(utils.serialNumberToDate(valueToTest))
+                            } else {
+                                dateCase = "Case 9: valueToTest no Date (serial number), criteria is no Date (serial number) => do nothing";
+                            }
                         }
-                    } else if(valueIsDate){
-                        if (criteriaIsUnixTimestamp) {
-                            dateCase = "Case 4: valueToTest is Date, criteria is Unix timestamp => convert criteria";
-                            criteria = formatter.format(new Date(criteria).getTime())
-                        } else if (criteriaIsDate) {
-                            dateCase = "Case 5: valueToTest is Date, criteria is Date => do nothing";
-                        } else {
-                            dateCase = "Case 6: valueToTest is Date, criteria is no Date (serial number) => convert criteria";
-                            criteria = formatter.format(utils.serialNumberToDate(criteria))
-                        }
-                    } else {
-                        if (criteriaIsUnixTimestamp) {
-                            dateCase = "Case 7: valueToTest no Date (serial number), criteria is Unix timestamp => convert both in different styles";
-                            valueToTest = formatter.format(utils.serialNumberToDate(valueToTest))
-                            criteria = formatter.format(new Date(criteria).getTime())
-                        } else if (criteriaIsDate) {
-                            dateCase = "Case 8: valueToTest no Date (serial number), criteria is Date => convert valueToTest";
-                            valueToTest = formatter.format(utils.serialNumberToDate(valueToTest))
-                        } else {
-                            dateCase = "Case 9: valueToTest no Date (serial number), criteria is no Date (serial number) => do nothing";
-                        }
+                    } catch (error){
+                        console.log("CATCH ERROR | valuetoTest: " + valueToTest + " /// criteria: " + criteria);
                     }
                     /*if(range.length==3 && args.length==2) {
                         console.log(dateCase);
