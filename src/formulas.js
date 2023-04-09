@@ -102,7 +102,7 @@ function sumifs() {
         if (range instanceof Error) {
             return range
         }
-        if(range.length==3) {
+        if(range.length==3 && args.length==2) {
             console.log(args)
             console.log(range)
         }
@@ -135,6 +135,10 @@ function sumifs() {
                     if(!dateRegex.test(criteria)){
                         console.log("not criteria")
                         criteria = formatter.format(utils.serialNumberToDate(criteria));
+                    }
+                } else {
+                    if(range.length==3 && args.length==2) {
+                        console.log("no dates: "+valueToTest+""+criteria);
                     }
                 }
 
