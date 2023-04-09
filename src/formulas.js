@@ -125,12 +125,14 @@ function sumifs() {
                 const isWildcard = criteria === void 0 || criteria === '*'
 
                 // If one is date, convert both to dates
+                const dateRegex = /^\d{1,2}\/\d{1,2}\/\d{4}$/
                 function isUnixTimestamp(timestamp) {
                     let date = new Date(timestamp);
                     console.log(date.getTime());
-                    return !isNaN(date.getTime());
+                    console.log(formatter.format(date.getTime()));
+                    return false
+                   // return dateRegex.test(date);
                 }
-                const dateRegex = /^\d{1,2}\/\d{1,2}\/\d{4}$/
                 if(dateRegex.test(valueToTest) || dateRegex.test(criteria)){
                     console.log("date is there");
                     if(!dateRegex.test(valueToTest)){
