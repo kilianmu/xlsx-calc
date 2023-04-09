@@ -127,17 +127,17 @@ function sumifs() {
 
                 // If one is date, convert both to dates
                 const dateRegex = /^\d{1,2}\/\d{1,2}\/\d{4}$/
-                function isUnixTimestamp(timestamp) {
+                /*function isUnixTimestamp(timestamp) {
                     let date = formatter.format(new Date(timestamp).getTime())
                     if(date!= "1/1/1970" && timestamp != "<0" && timestamp != ">0"){
                         return dateRegex.test(date)
                     } else {
                         return false
                     }
-                }
-                let valueIsUnixTimestamp = isUnixTimestamp(valueToTest);
+                }*/
+                //let valueIsUnixTimestamp = isUnixTimestamp(valueToTest);
                 let valueIsDate = dateRegex.test(valueToTest);
-                let criteriaIsUnixTimestamp = isUnixTimestamp(criteria);
+               // let criteriaIsUnixTimestamp = isUnixTimestamp(criteria);
                 let criteriaIsDate = dateRegex.test(criteria);
                 let dateCase;
 
@@ -342,7 +342,6 @@ function edate(start_date, months) {
         console.log("edate 3: "+start_date+" - "+months);
         start_date = formatter.format(start_date);
         console.log("edate 4: "+start_date+" - "+months);
-
 
         return start_date
     }
