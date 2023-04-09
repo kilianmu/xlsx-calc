@@ -134,16 +134,16 @@ function sumifs() {
                         return false
                     }
                 }
-                if(dateRegex.test(valueToTest) || dateRegex.test(criteria) || isUnixTimestamp(criteria) || isUnixTimestamp(criteria)){
+                let valueIsUnixTimestamp = isUnixTimestamp(valueToTest);
+                let valueIsDate = dateRegex.test(valueToTest);
+                let criteriaIsUnixTimestamp = isUnixTimestamp(criteria);
+                let criteriaIsDate = dateRegex.test(criteria);
+                let dateCase;
+                //if(range.length==3 && args.length==2) {
+                console.log("valuetoTest: " + valueToTest + " (" + valueIsUnixTimestamp + " | " + valueIsDate + ") /// criteria: " + criteria + " (" + criteriaIsUnixTimestamp + " | " + criteriaIsDate + ")");
+                //}
 
-                    let valueIsUnixTimestamp = isUnixTimestamp(valueToTest);
-                    let valueIsDate = dateRegex.test(valueToTest);
-                    let criteriaIsUnixTimestamp = isUnixTimestamp(criteria);
-                    let criteriaIsDate = dateRegex.test(criteria);
-                    let dateCase;
-                    //if(range.length==3 && args.length==2) {
-                        console.log("valuetoTest: " + valueToTest + " (" + valueIsUnixTimestamp + " | " + valueIsDate + ") /// criteria: " + criteria + " (" + criteriaIsUnixTimestamp + " | " + criteriaIsDate + ")");
-                    //}
+                if(valueIsDate|| valueIsUnixTimestamp || criteriaIsDate || criteriaIsUnixTimestamp){
                     if (valueIsUnixTimestamp) {
                         if (criteriaIsUnixTimestamp) {
                             dateCase = "Case 1: valueToTest is Unix timestamp, criteria is Unix timestamp => convert both";
