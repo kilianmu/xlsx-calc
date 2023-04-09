@@ -323,13 +323,11 @@ function eomonth() {
     return return_date;
 }
 function edate(start_date, months) {
-    console.log("edate 1: "+start_date+" - "+months);
     start_date = utils.parseDate(start_date)
 
     if (start_date instanceof Error) {
         return start_date
     }
-    console.log("edate 2: "+start_date+" - "+months);
     if (isNaN(months)) {
         return error.value
     }
