@@ -725,12 +725,13 @@ function avg() {
     let count = 0;
 
     for (let i = 0; i < allValues.length; i++) {
+        console.log(allValues[i]);
         if (allValues[i] !== 0 && allValues[i] !== "") {
             sum += Number(allValues[i]);
             count++;
         }
     }
-    console.log(count+" | "+sum);
+    console.log(allValues.length+" | "+count+" | "+sum);
     return count === 0 ? 0 : sum / count;
     //return sum.apply(this, arguments) / counta.apply(this, arguments);
 }
