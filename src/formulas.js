@@ -725,7 +725,7 @@ function avg() {
     let count = 0;
 
     for (let i = 0; i < allValues.length; i++) {
-        console.log(allValues[i]);
+       // console.log(allValues[i]);
         if (allValues[i] !== 0 && allValues[i] !== "") {
             sum += Number(allValues[i]);
             count++;
