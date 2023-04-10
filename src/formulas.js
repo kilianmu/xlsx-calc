@@ -720,13 +720,13 @@ function EXP(n) {
 
 function avg() {
     let allValues = arguments[0][0]
-    console.log(allValues);
+    //console.log(allValues);
     let sum = 0;
     let count = 0;
 
     for (let i = 0; i < allValues.length; i++) {
        // console.log(allValues[i]);
-        if (allValues[i] !== 0 && allValues[i] !== "") {
+        if (allValues[i] !== null && allValues[i] !== "") {
             sum += Number(allValues[i]);
             count++;
         }
