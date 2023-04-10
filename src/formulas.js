@@ -720,21 +720,16 @@ function EXP(n) {
 
 function avg() {
     let allValues = arguments[0][0]
-    //console.log(allValues);
     let sum = 0;
     let count = 0;
 
     for (let i = 0; i < allValues.length; i++) {
-       // console.log(allValues[i]);
         if (allValues[i] !== null && allValues[i] !== "") {
-            console.log(Number(allValues[i]));
             sum += Number(allValues[i]);
             count++;
         }
     }
-    console.log(allValues.length+" | "+count+" | "+sum);
     return count === 0 ? 0 : sum / count;
-    //return sum.apply(this, arguments) / counta.apply(this, arguments);
 }
 
 function stDeviation() {
